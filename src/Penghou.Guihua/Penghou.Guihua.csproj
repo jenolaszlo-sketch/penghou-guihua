@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <PackageId>Penghou.Guihua</PackageId>
+    <Title>Penghou Guihua</Title>
+    <Description>Reusable planning and workflow-evolution kernel for Fuwen workflows: patches, preservation, stages, graphs, artifacts, and iterative planning mechanics.</Description>
+    <PackageTags>workflow;planning;fuwen;mutation;artifacts;ai;automation</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <PublicApiAnalyzerEnabled>true</PublicApiAnalyzerEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Penghou.Fuwen" Version="0.1.0-preview.10" />
+  </ItemGroup>
+
+</Project>

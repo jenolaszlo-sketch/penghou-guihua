@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net10.0</TargetFrameworks>
+    <PackageId>Penghou.Guihua.Zhinu</PackageId>
+    <Title>Penghou Guihua Zhinu</Title>
+    <Description>Durable execution integration for Penghou Guihua: versioned revision hosting over Zhinu workflows.</Description>
+    <PackageTags>workflow;planning;fuwen;zhinu;durable;ai;automation</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IsPackable>true</IsPackable>
+    <PublicApiAnalyzerEnabled>true</PublicApiAnalyzerEnabled>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Penghou.Guihua\Penghou.Guihua.csproj" />
+    <PackageReference Include="Penghou.Fuwen" Version="0.1.0-preview.10" />
+    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.10" />
+    <PackageReference Include="Penghou.Fuwen.Zhinu" Version="0.1.0-preview.10" />
+    <PackageReference Include="Penghou.Zhinu" Version="0.1.0-preview.14" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/Penghou.Guihua/Penghou.Guihua.csproj" />
+    <Project Path="src/Penghou.Guihua.Baize/Penghou.Guihua.Baize.csproj" />
+    <Project Path="src/Penghou.Guihua.Zhinu/Penghou.Guihua.Zhinu.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Penghou.Guihua.Tests/Penghou.Guihua.Tests.csproj" />
+    <Project Path="tests/Penghou.Guihua.Baize.Tests/Penghou.Guihua.Baize.Tests.csproj" />
+    <Project Path="tests/Penghou.Guihua.Zhinu.Tests/Penghou.Guihua.Zhinu.Tests.csproj" />
+  </Folder>
+</Solution>
