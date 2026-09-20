@@ -27,7 +27,8 @@ public interface IWorkflowPatchProposer
         string catalogueSummary,
         string model,
         int maxTokens = 4000,
-        CancellationToken cancellationToken = default);}
+        CancellationToken cancellationToken = default);
+}
 
 /// <summary>One authored revision: admitted DSL plus its plan and cost.</summary>
 public sealed record AuthoredRevision(
