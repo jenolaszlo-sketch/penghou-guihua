@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Penghou.Guihua\Penghou.Guihua.csproj" />
-    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.10" />
+    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.11" />
     <PackageReference Include="xunit.v3" Version="1.*" />
     <PackageReference Include="xunit.runner.visualstudio" Version="4.0.0-pre.4" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.*" />

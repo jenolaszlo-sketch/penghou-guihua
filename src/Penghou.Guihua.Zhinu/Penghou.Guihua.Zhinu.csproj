@@ -13,9 +13,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Penghou.Guihua\Penghou.Guihua.csproj" />
-    <PackageReference Include="Penghou.Fuwen" Version="0.1.0-preview.10" />
-    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.10" />
-    <PackageReference Include="Penghou.Fuwen.Zhinu" Version="0.1.0-preview.10" />
+    <PackageReference Include="Penghou.Fuwen" Version="0.1.0-preview.11" />
+    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.11" />
+    <PackageReference Include="Penghou.Fuwen.Zhinu" Version="0.1.0-preview.11" />
     <PackageReference Include="Penghou.Zhinu" Version="0.1.0-preview.14" />
   </ItemGroup>
 

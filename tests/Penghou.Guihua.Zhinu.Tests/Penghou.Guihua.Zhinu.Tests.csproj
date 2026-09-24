@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Penghou.Guihua.Zhinu\Penghou.Guihua.Zhinu.csproj" />
-    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.10" />
+    <PackageReference Include="Penghou.Fuwen.Compiler" Version="0.1.0-preview.11" />
     <PackageReference Include="Penghou.Zhinu.Sqlite" Version="0.1.0-preview.14" />
     <PackageReference Include="xunit.v3" Version="1.*" />
     <PackageReference Include="xunit.runner.visualstudio" Version="4.0.0-pre.4" />
