@@ -25,4 +25,6 @@ Cangjie   remembers
   revisions over Zhinu workflows.
 
 See `docs/architecture.md` for what Guihua is and is not, and how
-applications (Guyabano, Marang) consume it.
+applications (Guyabano, Marang) consume it. See `ROADMAP.md` for delivery
+status and `samples/Penghou.Guihua.Sample` for a runnable walk through the
+kernel (design → patch → catalog).

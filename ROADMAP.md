@@ -116,10 +116,12 @@ so publish order matters (Fuwen → Guihua → consumers).
 - **Public API baselines deferred by design.** `Directory.Build.props` suppresses
   `RS0026;RS0027;CS1591` and notes "add with Shipped/Unshipped files before
   stable". Establish `PublicAPI.Shipped.txt`/`Unshipped.txt` before RC.
-- **No coverage thresholds.** CI builds, formats, tests, and packs, but does
-  not enforce coverage.
-- **No samples.** A minimal authoring/patch/loop sample would exercise the
-  public contract end to end.
+- **Coverage thresholds — done.** CI enforces coverage per area via
+  `coverlet.msbuild`: core ≥ 70, Baize ≥ 50, Zhinu ≥ 45 (line and branch).
+  Current baselines: core 83.9/72.8, Baize 75.8/52.5, Zhinu 87.0/47.7.
+- **Sample — done.** `samples/Penghou.Guihua.Sample` walks the public contract
+  end to end: design → fingerprint → patch → deterministic assembly → artifact
+  catalog with provenance.
 - **No benchmarks.** The kernel is not performance-critical; revisit only if a
   consumer shows otherwise.
 
@@ -141,5 +143,5 @@ software roles, product artifact schemas — stay in the consumers.
    comparison and Zhinu generation cutover land; then add the provider-neutral
    patch admission/receipt, transition preview, and reuse/invalidation
    explanation in Gap A, keeping MCP transport and authorization in Marang.
-4. **Pre-stable** — flip PublicApiAnalyzers to Shipped baselines, add coverage
-   thresholds, and add a minimal sample.
+4. **Pre-stable** — flip PublicApiAnalyzers to Shipped baselines (coverage
+   thresholds and a sample already landed).

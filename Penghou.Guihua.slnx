@@ -9,4 +9,7 @@
     <Project Path="tests/Penghou.Guihua.Baize.Tests/Penghou.Guihua.Baize.Tests.csproj" />
     <Project Path="tests/Penghou.Guihua.Zhinu.Tests/Penghou.Guihua.Zhinu.Tests.csproj" />
   </Folder>
+  <Folder Name="/samples/">
+    <Project Path="samples/Penghou.Guihua.Sample/Penghou.Guihua.Sample.csproj" />
+  </Folder>
 </Solution>
