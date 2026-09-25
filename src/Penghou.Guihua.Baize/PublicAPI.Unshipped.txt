@@ -1,0 +1,297 @@
+#nullable enable
+abstract Penghou.Guihua.Baize.PromptBuilderBase<TContext>.BuildTemplateModel(TContext context) -> object!
+abstract Penghou.Guihua.Baize.PromptBuilderBase<TContext>.Template.get -> Penghou.Guihua.Baize.PromptTemplate!
+abstract Penghou.Guihua.Baize.PromptBuilderBase<TContext>.Validate(TContext context) -> void
+override Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.PlanningBootstrapPromptContext.GetHashCode() -> int
+override Penghou.Guihua.Baize.PlanningBootstrapPromptContext.ToString() -> string!
+override Penghou.Guihua.Baize.PlanningDecisionPromptContext.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.PlanningDecisionPromptContext.GetHashCode() -> int
+override Penghou.Guihua.Baize.PlanningDecisionPromptContext.ToString() -> string!
+override Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.GetHashCode() -> int
+override Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.ToString() -> string!
+override Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.PlanningStagePlanProposalResult.GetHashCode() -> int
+override Penghou.Guihua.Baize.PlanningStagePlanProposalResult.ToString() -> string!
+override Penghou.Guihua.Baize.PromptTemplate.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.PromptTemplate.GetHashCode() -> int
+override Penghou.Guihua.Baize.PromptTemplate.ToString() -> string!
+override Penghou.Guihua.Baize.WorkflowAuthorAttempt.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.WorkflowAuthorAttempt.GetHashCode() -> int
+override Penghou.Guihua.Baize.WorkflowAuthorAttempt.ToString() -> string!
+override Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.GetHashCode() -> int
+override Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.ToString() -> string!
+override Penghou.Guihua.Baize.WorkflowAuthorResult.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.WorkflowAuthorResult.GetHashCode() -> int
+override Penghou.Guihua.Baize.WorkflowAuthorResult.ToString() -> string!
+override Penghou.Guihua.Baize.WorkflowPatchPromptContext.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.WorkflowPatchPromptContext.GetHashCode() -> int
+override Penghou.Guihua.Baize.WorkflowPatchPromptContext.ToString() -> string!
+override Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.GetHashCode() -> int
+override Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.ToString() -> string!
+override Penghou.Guihua.Baize.WorkflowPatchProposalResult.Equals(object? obj) -> bool
+override Penghou.Guihua.Baize.WorkflowPatchProposalResult.GetHashCode() -> int
+override Penghou.Guihua.Baize.WorkflowPatchProposalResult.ToString() -> string!
+Penghou.Guihua.Baize.CatalogueSummaryBuilder
+Penghou.Guihua.Baize.EmbeddedPromptLoader
+Penghou.Guihua.Baize.EmbeddedPromptLoader.EmbeddedPromptLoader(System.Reflection.Assembly? assembly = null) -> void
+Penghou.Guihua.Baize.EmbeddedPromptLoader.LoadAsync(string! promptName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Penghou.Guihua.Baize.FilePromptLoader
+Penghou.Guihua.Baize.FilePromptLoader.FilePromptLoader(string! promptRoot) -> void
+Penghou.Guihua.Baize.FilePromptLoader.LoadAsync(string! promptName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Penghou.Guihua.Baize.ILlmPromptContext
+Penghou.Guihua.Baize.ILlmPromptContext.MaxTokens.get -> int
+Penghou.Guihua.Baize.ILlmPromptContext.Temperature.get -> double
+Penghou.Guihua.Baize.IPromptBuilder<TContext>
+Penghou.Guihua.Baize.IPromptBuilder<TContext>.BuildAsync(TContext context, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Baize.LlmRequest!>!
+Penghou.Guihua.Baize.IPromptLoader
+Penghou.Guihua.Baize.IPromptLoader.LoadAsync(string! promptName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Penghou.Guihua.Baize.IPromptTemplateEngine
+Penghou.Guihua.Baize.IPromptTemplateEngine.RenderAsync(string! templateName, object! model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Penghou.Guihua.Baize.LlmPlanningDecider
+Penghou.Guihua.Baize.LlmPlanningDecider.DecideAsync(Penghou.Guihua.PlanningDecisionContext! observation, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningDecisionResult!>!
+Penghou.Guihua.Baize.LlmPlanningDecider.LlmPlanningDecider(Penghou.Baize.Router.ILlmRouter! llmRouter, Penghou.Guihua.Baize.IPromptBuilder<Penghou.Guihua.Baize.PlanningDecisionPromptContext!>! promptBuilder, string! model, int maxTokens = 2000, int maxAttempts = 3, int maxFailureCharacters = 4000) -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptBuilder
+Penghou.Guihua.Baize.PlanningBootstrapPromptBuilder.PlanningBootstrapPromptBuilder(Penghou.Guihua.Baize.IPromptTemplateEngine! templateEngine) -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.<Clone>$() -> Penghou.Guihua.Baize.PlanningBootstrapPromptContext!
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.CatalogueVersion.get -> string!
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.CatalogueVersion.init -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.CurrentRevisions.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.CurrentRevisions.init -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Deconstruct(out string! Goal, out string! StageCatalogue, out string! CatalogueVersion, out System.Collections.Generic.IReadOnlyList<string!>! CurrentRevisions, out int MaxTokens, out string? PreviousFailure) -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Equals(Penghou.Guihua.Baize.PlanningBootstrapPromptContext? other) -> bool
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Goal.get -> string!
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Goal.init -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.MaxTokens.get -> int
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.MaxTokens.init -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.PlanningBootstrapPromptContext(string! Goal, string! StageCatalogue, string! CatalogueVersion, System.Collections.Generic.IReadOnlyList<string!>! CurrentRevisions, int MaxTokens, string? PreviousFailure = null) -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.PreviousFailure.get -> string?
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.PreviousFailure.init -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.StageCatalogue.get -> string!
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.StageCatalogue.init -> void
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Temperature.get -> double
+Penghou.Guihua.Baize.PlanningBootstrapPromptContext.Temperature.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptBuilder
+Penghou.Guihua.Baize.PlanningDecisionPromptBuilder.PlanningDecisionPromptBuilder(Penghou.Guihua.Baize.IPromptTemplateEngine! templateEngine) -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.<Clone>$() -> Penghou.Guihua.Baize.PlanningDecisionPromptContext!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.Deconstruct(out string! Goal, out string! ExecutionPlan, out string! DesignFingerprint, out string! WorkflowVersion, out bool WorkflowComplete, out string! EvidenceSummary, out System.Collections.Generic.IReadOnlyList<string!>! FreshArtifacts, out System.Collections.Generic.IReadOnlyList<string!>! SupersededPins, out int IterationsRemaining, out int MutationsRemaining, out int StructuralRemaining, out int ModelCallsRemaining, out int? TokensRemaining, out int MaxTokens, out string? PreviousFailure) -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.DesignFingerprint.get -> string!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.DesignFingerprint.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.Equals(Penghou.Guihua.Baize.PlanningDecisionPromptContext? other) -> bool
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.EvidenceSummary.get -> string!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.EvidenceSummary.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.ExecutionPlan.get -> string!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.ExecutionPlan.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.FreshArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.FreshArtifacts.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.Goal.get -> string!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.Goal.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.IterationsRemaining.get -> int
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.IterationsRemaining.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.MaxTokens.get -> int
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.MaxTokens.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.ModelCallsRemaining.get -> int
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.ModelCallsRemaining.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.MutationsRemaining.get -> int
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.MutationsRemaining.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.PlanningDecisionPromptContext(string! Goal, string! ExecutionPlan, string! DesignFingerprint, string! WorkflowVersion, bool WorkflowComplete, string! EvidenceSummary, System.Collections.Generic.IReadOnlyList<string!>! FreshArtifacts, System.Collections.Generic.IReadOnlyList<string!>! SupersededPins, int IterationsRemaining, int MutationsRemaining, int StructuralRemaining, int ModelCallsRemaining, int? TokensRemaining, int MaxTokens, string? PreviousFailure = null) -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.PreviousFailure.get -> string?
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.PreviousFailure.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.StructuralRemaining.get -> int
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.StructuralRemaining.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.SupersededPins.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.SupersededPins.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.Temperature.get -> double
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.Temperature.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.TokensRemaining.get -> int?
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.TokensRemaining.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.WorkflowComplete.get -> bool
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.WorkflowComplete.init -> void
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.WorkflowVersion.get -> string!
+Penghou.Guihua.Baize.PlanningDecisionPromptContext.WorkflowVersion.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.<Clone>$() -> Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt!
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Accepted.get -> bool
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Accepted.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Attempt.get -> int
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Attempt.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Content.get -> string!
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Content.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Deconstruct(out int Attempt, out string! Content, out bool Accepted, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Diagnostics.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.Equals(Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt? other) -> bool
+Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.PlanningStagePlanProposalAttempt(int Attempt, string! Content, bool Accepted, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.<Clone>$() -> Penghou.Guihua.Baize.PlanningStagePlanProposalResult!
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Attempts.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt!>!
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Attempts.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Deconstruct(out bool Succeeded, out Penghou.Guihua.PlanningStagePlan? Plan, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt!>! Attempts, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Diagnostics.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Equals(Penghou.Guihua.Baize.PlanningStagePlanProposalResult? other) -> bool
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Plan.get -> Penghou.Guihua.PlanningStagePlan?
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Plan.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.PlanningStagePlanProposalResult(bool Succeeded, Penghou.Guihua.PlanningStagePlan? Plan, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt!>! Attempts, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Succeeded.get -> bool
+Penghou.Guihua.Baize.PlanningStagePlanProposalResult.Succeeded.init -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposer
+Penghou.Guihua.Baize.PlanningStagePlanProposer.PlanningStagePlanProposer(Penghou.Baize.Router.ILlmRouter! llmRouter, Penghou.Guihua.Baize.IPromptBuilder<Penghou.Guihua.Baize.PlanningBootstrapPromptContext!>! promptBuilder, int maxAttempts = 3, int maxFailureCharacters = 4000) -> void
+Penghou.Guihua.Baize.PlanningStagePlanProposer.ProposeAsync(string! goal, Penghou.Guihua.PlanningStageCatalogue! catalogue, System.Collections.Generic.IReadOnlyList<string!>! currentRevisions, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.Baize.PlanningStagePlanProposalResult!>!
+Penghou.Guihua.Baize.PromptBuilderBase<TContext>
+Penghou.Guihua.Baize.PromptBuilderBase<TContext>.BuildAsync(TContext context, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Baize.LlmRequest!>!
+Penghou.Guihua.Baize.PromptBuilderBase<TContext>.PromptBuilderBase(Penghou.Guihua.Baize.IPromptTemplateEngine! templateEngine) -> void
+Penghou.Guihua.Baize.PromptTemplate
+Penghou.Guihua.Baize.PromptTemplate.<Clone>$() -> Penghou.Guihua.Baize.PromptTemplate!
+Penghou.Guihua.Baize.PromptTemplate.Deconstruct(out string! SystemPromptName, out string! UserTemplateName) -> void
+Penghou.Guihua.Baize.PromptTemplate.Equals(Penghou.Guihua.Baize.PromptTemplate? other) -> bool
+Penghou.Guihua.Baize.PromptTemplate.PromptTemplate(string! SystemPromptName, string! UserTemplateName) -> void
+Penghou.Guihua.Baize.PromptTemplate.SystemPromptName.get -> string!
+Penghou.Guihua.Baize.PromptTemplate.SystemPromptName.init -> void
+Penghou.Guihua.Baize.PromptTemplate.UserTemplateName.get -> string!
+Penghou.Guihua.Baize.PromptTemplate.UserTemplateName.init -> void
+Penghou.Guihua.Baize.ScribanPromptTemplateEngine
+Penghou.Guihua.Baize.ScribanPromptTemplateEngine.RenderAsync(string! templateName, object! model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
+Penghou.Guihua.Baize.ScribanPromptTemplateEngine.ScribanPromptTemplateEngine(Penghou.Guihua.Baize.IPromptLoader! promptLoader) -> void
+Penghou.Guihua.Baize.WorkflowAuthor
+Penghou.Guihua.Baize.WorkflowAuthor.AuthorAsync(string! request, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.Baize.WorkflowAuthorResult!>!
+Penghou.Guihua.Baize.WorkflowAuthor.AuthorFromPatchAsync(string! goal, string! executionPlan, string! priorDsl, Penghou.Fuwen.WorkflowPlan! priorPlan, Penghou.Guihua.WorkflowPatch! patch, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.Baize.WorkflowAuthorResult!>!
+Penghou.Guihua.Baize.WorkflowAuthor.AuthorFromPlanAsync(string! goal, string! executionPlan, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.Baize.WorkflowAuthorResult!>!
+Penghou.Guihua.Baize.WorkflowAuthor.WorkflowAuthor(Penghou.Baize.Router.ILlmRouter! llmRouter, Penghou.Guihua.Baize.IPromptBuilder<Penghou.Guihua.Baize.WorkflowAuthoringPromptContext!>! promptBuilder, Penghou.Fuwen.Compiler.ITrustedCatalogue! catalogue, int maxAttempts = 3, int maxFailureCharacters = 4000) -> void
+Penghou.Guihua.Baize.WorkflowAuthorAttempt
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.<Clone>$() -> Penghou.Guihua.Baize.WorkflowAuthorAttempt!
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Admitted.get -> bool
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Admitted.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Attempt.get -> int
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Attempt.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Deconstruct(out int Attempt, out string! Dsl, out bool Admitted, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Diagnostics.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Dsl.get -> string!
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Dsl.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.Equals(Penghou.Guihua.Baize.WorkflowAuthorAttempt? other) -> bool
+Penghou.Guihua.Baize.WorkflowAuthorAttempt.WorkflowAuthorAttempt(int Attempt, string! Dsl, bool Admitted, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptBuilder
+Penghou.Guihua.Baize.WorkflowAuthoringPromptBuilder.WorkflowAuthoringPromptBuilder(Penghou.Guihua.Baize.IPromptTemplateEngine! templateEngine) -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.<Clone>$() -> Penghou.Guihua.Baize.WorkflowAuthoringPromptContext!
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.CatalogueSummary.get -> string!
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.CatalogueSummary.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.ChangedSteps.get -> System.Collections.Generic.IReadOnlyList<string!>?
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.ChangedSteps.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Deconstruct(out string! Request, out string! CatalogueSummary, out int MaxTokens, out string? PreviousFailure, out string? ExecutionPlan, out string? PriorDsl, out System.Collections.Generic.IReadOnlyList<string!>? ChangedSteps) -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Equals(Penghou.Guihua.Baize.WorkflowAuthoringPromptContext? other) -> bool
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.ExecutionPlan.get -> string?
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.ExecutionPlan.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.MaxTokens.get -> int
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.MaxTokens.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.PreviousFailure.get -> string?
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.PreviousFailure.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.PriorDsl.get -> string?
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.PriorDsl.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Request.get -> string!
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Request.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Temperature.get -> double
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.Temperature.init -> void
+Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.WorkflowAuthoringPromptContext(string! Request, string! CatalogueSummary, int MaxTokens, string? PreviousFailure = null, string? ExecutionPlan = null, string? PriorDsl = null, System.Collections.Generic.IReadOnlyList<string!>? ChangedSteps = null) -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult
+Penghou.Guihua.Baize.WorkflowAuthorResult.<Clone>$() -> Penghou.Guihua.Baize.WorkflowAuthorResult!
+Penghou.Guihua.Baize.WorkflowAuthorResult.Admission.get -> Penghou.Fuwen.Compiler.WorkflowAdmissionResult?
+Penghou.Guihua.Baize.WorkflowAuthorResult.Admission.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult.Attempts.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.WorkflowAuthorAttempt!>!
+Penghou.Guihua.Baize.WorkflowAuthorResult.Attempts.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult.Deconstruct(out bool Succeeded, out string! Dsl, out Penghou.Fuwen.Compiler.WorkflowAdmissionResult? Admission, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.WorkflowAuthorAttempt!>! Attempts, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.WorkflowAuthorResult.Diagnostics.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult.Dsl.get -> string!
+Penghou.Guihua.Baize.WorkflowAuthorResult.Dsl.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult.Equals(Penghou.Guihua.Baize.WorkflowAuthorResult? other) -> bool
+Penghou.Guihua.Baize.WorkflowAuthorResult.Succeeded.get -> bool
+Penghou.Guihua.Baize.WorkflowAuthorResult.Succeeded.init -> void
+Penghou.Guihua.Baize.WorkflowAuthorResult.WorkflowAuthorResult(bool Succeeded, string! Dsl, Penghou.Fuwen.Compiler.WorkflowAdmissionResult? Admission, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.WorkflowAuthorAttempt!>! Attempts, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptBuilder
+Penghou.Guihua.Baize.WorkflowPatchPromptBuilder.WorkflowPatchPromptBuilder(Penghou.Guihua.Baize.IPromptTemplateEngine! templateEngine) -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.<Clone>$() -> Penghou.Guihua.Baize.WorkflowPatchPromptContext!
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.BaseDesignFingerprint.get -> string!
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.BaseDesignFingerprint.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.CatalogueSummary.get -> string!
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.CatalogueSummary.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.ChangedArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.ChangedArtifacts.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.Deconstruct(out string! Goal, out string! ExecutionPlan, out string! BaseDesignFingerprint, out System.Collections.Generic.IReadOnlyList<string!>! ChangedArtifacts, out string! CatalogueSummary, out int MaxTokens, out string? PreviousFailure) -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.Equals(Penghou.Guihua.Baize.WorkflowPatchPromptContext? other) -> bool
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.ExecutionPlan.get -> string!
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.ExecutionPlan.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.Goal.get -> string!
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.Goal.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.MaxTokens.get -> int
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.MaxTokens.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.PreviousFailure.get -> string?
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.PreviousFailure.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.Temperature.get -> double
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.Temperature.init -> void
+Penghou.Guihua.Baize.WorkflowPatchPromptContext.WorkflowPatchPromptContext(string! Goal, string! ExecutionPlan, string! BaseDesignFingerprint, System.Collections.Generic.IReadOnlyList<string!>! ChangedArtifacts, string! CatalogueSummary, int MaxTokens, string? PreviousFailure = null) -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.<Clone>$() -> Penghou.Guihua.Baize.WorkflowPatchProposalAttempt!
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Accepted.get -> bool
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Accepted.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Attempt.get -> int
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Attempt.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Content.get -> string!
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Content.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Deconstruct(out int Attempt, out string! Content, out bool Accepted, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Diagnostics.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.Equals(Penghou.Guihua.Baize.WorkflowPatchProposalAttempt? other) -> bool
+Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.WorkflowPatchProposalAttempt(int Attempt, string! Content, bool Accepted, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.<Clone>$() -> Penghou.Guihua.Baize.WorkflowPatchProposalResult!
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Applied.get -> Penghou.Guihua.PlanningDesign?
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Applied.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Attempts.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.WorkflowPatchProposalAttempt!>!
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Attempts.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Deconstruct(out bool Succeeded, out Penghou.Guihua.WorkflowPatch? Patch, out Penghou.Guihua.PlanningDesign? Applied, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.WorkflowPatchProposalAttempt!>! Attempts, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Diagnostics.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Equals(Penghou.Guihua.Baize.WorkflowPatchProposalResult? other) -> bool
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Patch.get -> Penghou.Guihua.WorkflowPatch?
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Patch.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Succeeded.get -> bool
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.Succeeded.init -> void
+Penghou.Guihua.Baize.WorkflowPatchProposalResult.WorkflowPatchProposalResult(bool Succeeded, Penghou.Guihua.WorkflowPatch? Patch, Penghou.Guihua.PlanningDesign? Applied, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.Baize.WorkflowPatchProposalAttempt!>! Attempts, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.Baize.WorkflowPatchProposer
+Penghou.Guihua.Baize.WorkflowPatchProposer.ProposeAsync(string! goal, Penghou.Guihua.PlanningDesign! current, string! executionPlan, System.Collections.Generic.IReadOnlyList<string!>! changedArtifacts, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.Baize.WorkflowPatchProposalResult!>!
+Penghou.Guihua.Baize.WorkflowPatchProposer.WorkflowPatchProposer(Penghou.Baize.Router.ILlmRouter! llmRouter, Penghou.Guihua.Baize.IPromptBuilder<Penghou.Guihua.Baize.WorkflowPatchPromptContext!>! promptBuilder, Penghou.Fuwen.Compiler.ITrustedCatalogueDiscovery? descriptorCatalogue = null, int maxAttempts = 3, int maxFailureCharacters = 4000) -> void
+static Penghou.Guihua.Baize.CatalogueSummaryBuilder.Render(System.Collections.Generic.IEnumerable<Penghou.Fuwen.Compiler.TrustedCatalogueDescriptor!>! descriptors) -> string!
+static Penghou.Guihua.Baize.PlanningBootstrapPromptContext.operator !=(Penghou.Guihua.Baize.PlanningBootstrapPromptContext? left, Penghou.Guihua.Baize.PlanningBootstrapPromptContext? right) -> bool
+static Penghou.Guihua.Baize.PlanningBootstrapPromptContext.operator ==(Penghou.Guihua.Baize.PlanningBootstrapPromptContext? left, Penghou.Guihua.Baize.PlanningBootstrapPromptContext? right) -> bool
+static Penghou.Guihua.Baize.PlanningDecisionPromptContext.operator !=(Penghou.Guihua.Baize.PlanningDecisionPromptContext? left, Penghou.Guihua.Baize.PlanningDecisionPromptContext? right) -> bool
+static Penghou.Guihua.Baize.PlanningDecisionPromptContext.operator ==(Penghou.Guihua.Baize.PlanningDecisionPromptContext? left, Penghou.Guihua.Baize.PlanningDecisionPromptContext? right) -> bool
+static Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.operator !=(Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt? left, Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt? right) -> bool
+static Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt.operator ==(Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt? left, Penghou.Guihua.Baize.PlanningStagePlanProposalAttempt? right) -> bool
+static Penghou.Guihua.Baize.PlanningStagePlanProposalResult.operator !=(Penghou.Guihua.Baize.PlanningStagePlanProposalResult? left, Penghou.Guihua.Baize.PlanningStagePlanProposalResult? right) -> bool
+static Penghou.Guihua.Baize.PlanningStagePlanProposalResult.operator ==(Penghou.Guihua.Baize.PlanningStagePlanProposalResult? left, Penghou.Guihua.Baize.PlanningStagePlanProposalResult? right) -> bool
+static Penghou.Guihua.Baize.PromptTemplate.operator !=(Penghou.Guihua.Baize.PromptTemplate? left, Penghou.Guihua.Baize.PromptTemplate? right) -> bool
+static Penghou.Guihua.Baize.PromptTemplate.operator ==(Penghou.Guihua.Baize.PromptTemplate? left, Penghou.Guihua.Baize.PromptTemplate? right) -> bool
+static Penghou.Guihua.Baize.WorkflowAuthor.ExtractDsl(string! content) -> string!
+static Penghou.Guihua.Baize.WorkflowAuthorAttempt.operator !=(Penghou.Guihua.Baize.WorkflowAuthorAttempt? left, Penghou.Guihua.Baize.WorkflowAuthorAttempt? right) -> bool
+static Penghou.Guihua.Baize.WorkflowAuthorAttempt.operator ==(Penghou.Guihua.Baize.WorkflowAuthorAttempt? left, Penghou.Guihua.Baize.WorkflowAuthorAttempt? right) -> bool
+static Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.operator !=(Penghou.Guihua.Baize.WorkflowAuthoringPromptContext? left, Penghou.Guihua.Baize.WorkflowAuthoringPromptContext? right) -> bool
+static Penghou.Guihua.Baize.WorkflowAuthoringPromptContext.operator ==(Penghou.Guihua.Baize.WorkflowAuthoringPromptContext? left, Penghou.Guihua.Baize.WorkflowAuthoringPromptContext? right) -> bool
+static Penghou.Guihua.Baize.WorkflowAuthorResult.operator !=(Penghou.Guihua.Baize.WorkflowAuthorResult? left, Penghou.Guihua.Baize.WorkflowAuthorResult? right) -> bool
+static Penghou.Guihua.Baize.WorkflowAuthorResult.operator ==(Penghou.Guihua.Baize.WorkflowAuthorResult? left, Penghou.Guihua.Baize.WorkflowAuthorResult? right) -> bool
+static Penghou.Guihua.Baize.WorkflowPatchPromptContext.operator !=(Penghou.Guihua.Baize.WorkflowPatchPromptContext? left, Penghou.Guihua.Baize.WorkflowPatchPromptContext? right) -> bool
+static Penghou.Guihua.Baize.WorkflowPatchPromptContext.operator ==(Penghou.Guihua.Baize.WorkflowPatchPromptContext? left, Penghou.Guihua.Baize.WorkflowPatchPromptContext? right) -> bool
+static Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.operator !=(Penghou.Guihua.Baize.WorkflowPatchProposalAttempt? left, Penghou.Guihua.Baize.WorkflowPatchProposalAttempt? right) -> bool
+static Penghou.Guihua.Baize.WorkflowPatchProposalAttempt.operator ==(Penghou.Guihua.Baize.WorkflowPatchProposalAttempt? left, Penghou.Guihua.Baize.WorkflowPatchProposalAttempt? right) -> bool
+static Penghou.Guihua.Baize.WorkflowPatchProposalResult.operator !=(Penghou.Guihua.Baize.WorkflowPatchProposalResult? left, Penghou.Guihua.Baize.WorkflowPatchProposalResult? right) -> bool
+static Penghou.Guihua.Baize.WorkflowPatchProposalResult.operator ==(Penghou.Guihua.Baize.WorkflowPatchProposalResult? left, Penghou.Guihua.Baize.WorkflowPatchProposalResult? right) -> bool
+virtual Penghou.Guihua.Baize.PromptBuilderBase<TContext>.BuildMetadata(TContext context) -> System.Collections.Generic.IReadOnlyDictionary<string!, object?>!
+virtual Penghou.Guihua.Baize.PromptBuilderBase<TContext>.BuildResponseFormat(TContext context) -> Penghou.Baize.LlmResponseFormat?
+virtual Penghou.Guihua.Baize.PromptBuilderBase<TContext>.BuildTools(TContext context) -> System.Collections.Generic.IReadOnlyList<Penghou.Baize.LlmTool!>!

@@ -1,0 +1,861 @@
+#nullable enable
+const Penghou.Guihua.CanonicalJsonContentHash.Version = "v2" -> string!
+const Penghou.Guihua.PlanningArtifactCatalog.IndexKind = "planning-catalog" -> string!
+const Penghou.Guihua.PlanningArtifactCatalog.IndexStageKey = "index" -> string!
+const Penghou.Guihua.PlanningDesignIdentity.FingerprintScheme = "sha256:execution-design/v1:" -> string!
+const Penghou.Guihua.PlanningStageCatalogue.VersionScheme = "sha256:planning-stages/v1:" -> string!
+override Penghou.Guihua.ArtifactEnvelope<TPayload>.Equals(object? obj) -> bool
+override Penghou.Guihua.ArtifactEnvelope<TPayload>.GetHashCode() -> int
+override Penghou.Guihua.ArtifactEnvelope<TPayload>.ToString() -> string!
+override Penghou.Guihua.ArtifactReference.Equals(object? obj) -> bool
+override Penghou.Guihua.ArtifactReference.GetHashCode() -> int
+override Penghou.Guihua.ArtifactReference.ToString() -> string!
+override Penghou.Guihua.ArtifactWriteRequest<TPayload>.Equals(object? obj) -> bool
+override Penghou.Guihua.ArtifactWriteRequest<TPayload>.GetHashCode() -> int
+override Penghou.Guihua.ArtifactWriteRequest<TPayload>.ToString() -> string!
+override Penghou.Guihua.AuthoredRevision.Equals(object? obj) -> bool
+override Penghou.Guihua.AuthoredRevision.GetHashCode() -> int
+override Penghou.Guihua.AuthoredRevision.ToString() -> string!
+override Penghou.Guihua.FragmentArtifact.Equals(object? obj) -> bool
+override Penghou.Guihua.FragmentArtifact.GetHashCode() -> int
+override Penghou.Guihua.FragmentArtifact.ToString() -> string!
+override Penghou.Guihua.PlannedStage.Equals(object? obj) -> bool
+override Penghou.Guihua.PlannedStage.GetHashCode() -> int
+override Penghou.Guihua.PlannedStage.ToString() -> string!
+override Penghou.Guihua.PlanningArtifactImpact.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningArtifactImpact.GetHashCode() -> int
+override Penghou.Guihua.PlanningArtifactImpact.ToString() -> string!
+override Penghou.Guihua.PlanningArtifactKey.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningArtifactKey.GetHashCode() -> int
+override Penghou.Guihua.PlanningArtifactKey.ToString() -> string!
+override Penghou.Guihua.PlanningArtifactRecord.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningArtifactRecord.GetHashCode() -> int
+override Penghou.Guihua.PlanningArtifactRecord.ToString() -> string!
+override Penghou.Guihua.PlanningArtifactVersion.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningArtifactVersion.GetHashCode() -> int
+override Penghou.Guihua.PlanningArtifactVersion.ToString() -> string!
+override Penghou.Guihua.PlanningBinding.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningBinding.GetHashCode() -> int
+override Penghou.Guihua.PlanningBinding.ToString() -> string!
+override Penghou.Guihua.PlanningBindings.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningBindings.GetHashCode() -> int
+override Penghou.Guihua.PlanningBindings.ToString() -> string!
+override Penghou.Guihua.PlanningCheckpoint.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningCheckpoint.GetHashCode() -> int
+override Penghou.Guihua.PlanningCheckpoint.ToString() -> string!
+override Penghou.Guihua.PlanningDecision.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningDecision.GetHashCode() -> int
+override Penghou.Guihua.PlanningDecision.ToString() -> string!
+override Penghou.Guihua.PlanningDecisionContext.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningDecisionContext.GetHashCode() -> int
+override Penghou.Guihua.PlanningDecisionContext.ToString() -> string!
+override Penghou.Guihua.PlanningDecisionResult.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningDecisionResult.GetHashCode() -> int
+override Penghou.Guihua.PlanningDecisionResult.ToString() -> string!
+override Penghou.Guihua.PlanningDesign.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningDesign.GetHashCode() -> int
+override Penghou.Guihua.PlanningDesign.ToString() -> string!
+override Penghou.Guihua.PlanningGraph.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningGraph.GetHashCode() -> int
+override Penghou.Guihua.PlanningGraph.ToString() -> string!
+override Penghou.Guihua.PlanningGraphAssemblyResult.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningGraphAssemblyResult.GetHashCode() -> int
+override Penghou.Guihua.PlanningGraphAssemblyResult.ToString() -> string!
+override Penghou.Guihua.PlanningGraphFragment.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningGraphFragment.GetHashCode() -> int
+override Penghou.Guihua.PlanningGraphFragment.ToString() -> string!
+override Penghou.Guihua.PlanningGraphFragmentInput.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningGraphFragmentInput.GetHashCode() -> int
+override Penghou.Guihua.PlanningGraphFragmentInput.ToString() -> string!
+override Penghou.Guihua.PlanningLoopBudget.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningLoopBudget.GetHashCode() -> int
+override Penghou.Guihua.PlanningLoopBudget.ToString() -> string!
+override Penghou.Guihua.PlanningLoopOutcome.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningLoopOutcome.GetHashCode() -> int
+override Penghou.Guihua.PlanningLoopOutcome.ToString() -> string!
+override Penghou.Guihua.PlanningLoopPolicy.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningLoopPolicy.GetHashCode() -> int
+override Penghou.Guihua.PlanningLoopPolicy.ToString() -> string!
+override Penghou.Guihua.PlanningNodeBinding.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningNodeBinding.GetHashCode() -> int
+override Penghou.Guihua.PlanningNodeBinding.ToString() -> string!
+override Penghou.Guihua.PlanningStageCatalogue.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningStageCatalogue.GetHashCode() -> int
+override Penghou.Guihua.PlanningStageCatalogue.ToString() -> string!
+override Penghou.Guihua.PlanningStageDefinition.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningStageDefinition.GetHashCode() -> int
+override Penghou.Guihua.PlanningStageDefinition.ToString() -> string!
+override Penghou.Guihua.PlanningStagePlan.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningStagePlan.GetHashCode() -> int
+override Penghou.Guihua.PlanningStagePlan.ToString() -> string!
+override Penghou.Guihua.PlanningStagePlanProvenance.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningStagePlanProvenance.GetHashCode() -> int
+override Penghou.Guihua.PlanningStagePlanProvenance.ToString() -> string!
+override Penghou.Guihua.PlanningStageRunResult.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningStageRunResult.GetHashCode() -> int
+override Penghou.Guihua.PlanningStageRunResult.ToString() -> string!
+override Penghou.Guihua.PlanningStep.Equals(object? obj) -> bool
+override Penghou.Guihua.PlanningStep.GetHashCode() -> int
+override Penghou.Guihua.PlanningStep.ToString() -> string!
+override Penghou.Guihua.ProposedRevision.Equals(object? obj) -> bool
+override Penghou.Guihua.ProposedRevision.GetHashCode() -> int
+override Penghou.Guihua.ProposedRevision.ToString() -> string!
+override Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Equals(object? obj) -> bool
+override Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.GetHashCode() -> int
+override Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.ToString() -> string!
+override Penghou.Guihua.RevisionExecutionResult.Equals(object? obj) -> bool
+override Penghou.Guihua.RevisionExecutionResult.GetHashCode() -> int
+override Penghou.Guihua.RevisionExecutionResult.ToString() -> string!
+override Penghou.Guihua.StageExecutionInput.Equals(object? obj) -> bool
+override Penghou.Guihua.StageExecutionInput.GetHashCode() -> int
+override Penghou.Guihua.StageExecutionInput.ToString() -> string!
+override Penghou.Guihua.StageExecutionResult.Equals(object? obj) -> bool
+override Penghou.Guihua.StageExecutionResult.GetHashCode() -> int
+override Penghou.Guihua.StageExecutionResult.ToString() -> string!
+override Penghou.Guihua.StepDependencyEdit.Equals(object? obj) -> bool
+override Penghou.Guihua.StepDependencyEdit.GetHashCode() -> int
+override Penghou.Guihua.StepDependencyEdit.ToString() -> string!
+override Penghou.Guihua.WorkflowExecutionSnapshot.Equals(object? obj) -> bool
+override Penghou.Guihua.WorkflowExecutionSnapshot.GetHashCode() -> int
+override Penghou.Guihua.WorkflowExecutionSnapshot.ToString() -> string!
+override Penghou.Guihua.WorkflowPatch.Equals(object? obj) -> bool
+override Penghou.Guihua.WorkflowPatch.GetHashCode() -> int
+override Penghou.Guihua.WorkflowPatch.ToString() -> string!
+Penghou.Guihua.ArtifactEnvelope<TPayload>
+Penghou.Guihua.ArtifactEnvelope<TPayload>.<Clone>$() -> Penghou.Guihua.ArtifactEnvelope<TPayload>!
+Penghou.Guihua.ArtifactEnvelope<TPayload>.ArtifactEnvelope(Penghou.Guihua.ArtifactReference! Reference, string! WorkflowId, string! StageKey, System.DateTimeOffset CreatedAt, Penghou.Guihua.ArtifactStatus Status, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.ArtifactReference!>! Inputs, TPayload Payload) -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.CreatedAt.get -> System.DateTimeOffset
+Penghou.Guihua.ArtifactEnvelope<TPayload>.CreatedAt.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Deconstruct(out Penghou.Guihua.ArtifactReference! Reference, out string! WorkflowId, out string! StageKey, out System.DateTimeOffset CreatedAt, out Penghou.Guihua.ArtifactStatus Status, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.ArtifactReference!>! Inputs, out TPayload Payload) -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Equals(Penghou.Guihua.ArtifactEnvelope<TPayload>? other) -> bool
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Inputs.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.ArtifactReference!>!
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Inputs.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Payload.get -> TPayload
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Payload.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Reference.get -> Penghou.Guihua.ArtifactReference!
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Reference.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.SessionId.get -> string?
+Penghou.Guihua.ArtifactEnvelope<TPayload>.SessionId.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.StageKey.get -> string!
+Penghou.Guihua.ArtifactEnvelope<TPayload>.StageKey.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Status.get -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactEnvelope<TPayload>.Status.init -> void
+Penghou.Guihua.ArtifactEnvelope<TPayload>.WorkflowId.get -> string!
+Penghou.Guihua.ArtifactEnvelope<TPayload>.WorkflowId.init -> void
+Penghou.Guihua.ArtifactIntegrityException
+Penghou.Guihua.ArtifactIntegrityException.ArtifactIntegrityException(string! message, System.Exception? innerException = null) -> void
+Penghou.Guihua.ArtifactReference
+Penghou.Guihua.ArtifactReference.<Clone>$() -> Penghou.Guihua.ArtifactReference!
+Penghou.Guihua.ArtifactReference.ArtifactId.get -> string!
+Penghou.Guihua.ArtifactReference.ArtifactId.init -> void
+Penghou.Guihua.ArtifactReference.ArtifactReference(string! ArtifactId, string! Kind, int SchemaVersion, string! RelativePath, string! ContentHash) -> void
+Penghou.Guihua.ArtifactReference.ContentHash.get -> string!
+Penghou.Guihua.ArtifactReference.ContentHash.init -> void
+Penghou.Guihua.ArtifactReference.Deconstruct(out string! ArtifactId, out string! Kind, out int SchemaVersion, out string! RelativePath, out string! ContentHash) -> void
+Penghou.Guihua.ArtifactReference.Equals(Penghou.Guihua.ArtifactReference? other) -> bool
+Penghou.Guihua.ArtifactReference.HashVersion.get -> string!
+Penghou.Guihua.ArtifactReference.HashVersion.init -> void
+Penghou.Guihua.ArtifactReference.Kind.get -> string!
+Penghou.Guihua.ArtifactReference.Kind.init -> void
+Penghou.Guihua.ArtifactReference.RelativePath.get -> string!
+Penghou.Guihua.ArtifactReference.RelativePath.init -> void
+Penghou.Guihua.ArtifactReference.SchemaVersion.get -> int
+Penghou.Guihua.ArtifactReference.SchemaVersion.init -> void
+Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactStatus.Approved = 2 -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactStatus.Produced = 0 -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactStatus.Rejected = 3 -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactStatus.Superseded = 4 -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactStatus.Validated = 1 -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactWriteRequest<TPayload>
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.<Clone>$() -> Penghou.Guihua.ArtifactWriteRequest<TPayload>!
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.ArtifactWriteRequest(string! WorkflowId, string! Kind, int SchemaVersion, string! StageKey, Penghou.Guihua.ArtifactStatus Status, TPayload Payload, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.ArtifactReference!>? Inputs = null) -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Deconstruct(out string! WorkflowId, out string! Kind, out int SchemaVersion, out string! StageKey, out Penghou.Guihua.ArtifactStatus Status, out TPayload Payload, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.ArtifactReference!>? Inputs) -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Equals(Penghou.Guihua.ArtifactWriteRequest<TPayload>? other) -> bool
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Inputs.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.ArtifactReference!>?
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Inputs.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Kind.get -> string!
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Kind.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Payload.get -> TPayload
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Payload.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.SchemaVersion.get -> int
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.SchemaVersion.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.SessionId.get -> string?
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.SessionId.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.StageKey.get -> string!
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.StageKey.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Status.get -> Penghou.Guihua.ArtifactStatus
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.Status.init -> void
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.WorkflowId.get -> string!
+Penghou.Guihua.ArtifactWriteRequest<TPayload>.WorkflowId.init -> void
+Penghou.Guihua.AuthoredRevision
+Penghou.Guihua.AuthoredRevision.<Clone>$() -> Penghou.Guihua.AuthoredRevision!
+Penghou.Guihua.AuthoredRevision.AuthoredRevision(bool Succeeded, string! Dsl, Penghou.Fuwen.WorkflowPlan? Plan, int ModelCalls, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.AuthoredRevision.Deconstruct(out bool Succeeded, out string! Dsl, out Penghou.Fuwen.WorkflowPlan? Plan, out int ModelCalls, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.AuthoredRevision.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.AuthoredRevision.Diagnostics.init -> void
+Penghou.Guihua.AuthoredRevision.Dsl.get -> string!
+Penghou.Guihua.AuthoredRevision.Dsl.init -> void
+Penghou.Guihua.AuthoredRevision.Equals(Penghou.Guihua.AuthoredRevision? other) -> bool
+Penghou.Guihua.AuthoredRevision.ModelCalls.get -> int
+Penghou.Guihua.AuthoredRevision.ModelCalls.init -> void
+Penghou.Guihua.AuthoredRevision.Plan.get -> Penghou.Fuwen.WorkflowPlan?
+Penghou.Guihua.AuthoredRevision.Plan.init -> void
+Penghou.Guihua.AuthoredRevision.Succeeded.get -> bool
+Penghou.Guihua.AuthoredRevision.Succeeded.init -> void
+Penghou.Guihua.CanonicalJsonContentHash
+Penghou.Guihua.FileSystemArtifactRepository
+Penghou.Guihua.FileSystemArtifactRepository.FileSystemArtifactRepository(string! rootPath) -> void
+Penghou.Guihua.FileSystemArtifactRepository.ReadAsync<TPayload>(Penghou.Guihua.ArtifactReference! reference, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ArtifactEnvelope<TPayload>?>!
+Penghou.Guihua.FileSystemArtifactRepository.ReadLatestAsync<TPayload>(string! workflowId, string! kind, string! stageKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ArtifactEnvelope<TPayload>?>!
+Penghou.Guihua.FileSystemArtifactRepository.WriteAsync<TPayload>(Penghou.Guihua.ArtifactWriteRequest<TPayload>! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ArtifactEnvelope<TPayload>!>!
+Penghou.Guihua.FragmentArtifact
+Penghou.Guihua.FragmentArtifact.<Clone>$() -> Penghou.Guihua.FragmentArtifact!
+Penghou.Guihua.FragmentArtifact.Deconstruct(out Penghou.Guihua.PlanningArtifactVersion! Version, out System.Text.Json.JsonElement Payload) -> void
+Penghou.Guihua.FragmentArtifact.Equals(Penghou.Guihua.FragmentArtifact? other) -> bool
+Penghou.Guihua.FragmentArtifact.FragmentArtifact(Penghou.Guihua.PlanningArtifactVersion! Version, System.Text.Json.JsonElement Payload) -> void
+Penghou.Guihua.FragmentArtifact.Payload.get -> System.Text.Json.JsonElement
+Penghou.Guihua.FragmentArtifact.Payload.init -> void
+Penghou.Guihua.FragmentArtifact.Version.get -> Penghou.Guihua.PlanningArtifactVersion!
+Penghou.Guihua.FragmentArtifact.Version.init -> void
+Penghou.Guihua.IArtifactRepository
+Penghou.Guihua.IArtifactRepository.ReadAsync<TPayload>(Penghou.Guihua.ArtifactReference! reference, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ArtifactEnvelope<TPayload>?>!
+Penghou.Guihua.IArtifactRepository.ReadLatestAsync<TPayload>(string! workflowId, string! kind, string! stageKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ArtifactEnvelope<TPayload>?>!
+Penghou.Guihua.IArtifactRepository.WriteAsync<TPayload>(Penghou.Guihua.ArtifactWriteRequest<TPayload>! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ArtifactEnvelope<TPayload>!>!
+Penghou.Guihua.IPlanningArtifactCatalog
+Penghou.Guihua.IPlanningArtifactCatalog.GetAsync(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord?>!
+Penghou.Guihua.IPlanningArtifactCatalog.GetCurrentAsync(string! workflowId, Penghou.Guihua.PlanningArtifactKey! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord?>!
+Penghou.Guihua.IPlanningArtifactCatalog.InvalidateAsync(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! changed, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactImpact!>!
+Penghou.Guihua.IPlanningArtifactCatalog.ListCurrentAsync(string! workflowId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>!>!
+Penghou.Guihua.IPlanningArtifactCatalog.ListRevisionsAsync(string! workflowId, Penghou.Guihua.PlanningArtifactKey! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>!>!
+Penghou.Guihua.IPlanningArtifactCatalog.PublishAsync<TPayload>(Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord!>!
+Penghou.Guihua.IPlanningArtifactCatalog.ReadPayloadAsync<TPayload>(Penghou.Guihua.PlanningArtifactRecord! record, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<TPayload>!
+Penghou.Guihua.IPlanningArtifactCatalog.RevalidateAsync(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord!>!
+Penghou.Guihua.IPlanningDecider
+Penghou.Guihua.IPlanningDecider.DecideAsync(Penghou.Guihua.PlanningDecisionContext! observation, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningDecisionResult!>!
+Penghou.Guihua.IPlanningDslCompiler
+Penghou.Guihua.IPlanningDslCompiler.CompileAsync(string! dsl, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Fuwen.WorkflowPlan?>!
+Penghou.Guihua.IPlanningExecutionHost
+Penghou.Guihua.IPlanningExecutionHost.EnsureWorkflowAsync(string! workflowId, string! dsl, string! inputJson, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.WorkflowExecutionSnapshot!>!
+Penghou.Guihua.IPlanningExecutionHost.ExecuteRevisionAsync(string! workflowId, string! dsl, Penghou.Guihua.WorkflowPatch! patch, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.RevisionExecutionResult!>!
+Penghou.Guihua.IPlanningExecutionHost.ObserveAsync(string! workflowId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.WorkflowExecutionSnapshot!>!
+Penghou.Guihua.IPlanningExecutionHost.RegisterAsync(string! workflowId, string! version, string! dsl, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Penghou.Guihua.IPlanningGraphFragmentBuilder
+Penghou.Guihua.IPlanningGraphFragmentBuilder.ArtifactKind.get -> string!
+Penghou.Guihua.IPlanningGraphFragmentBuilder.BuildFragment(Penghou.Guihua.PlanningGraphFragmentInput! input) -> Penghou.Guihua.PlanningGraphFragment!
+Penghou.Guihua.IPlanningStageExecutor
+Penghou.Guihua.IPlanningStageExecutor.ExecuteAsync(Penghou.Guihua.StageExecutionInput! input, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.StageExecutionResult!>!
+Penghou.Guihua.IPlanningStageExecutor.StageId.get -> string!
+Penghou.Guihua.IWorkflowAuthor
+Penghou.Guihua.IWorkflowAuthor.AuthorFromPatchAsync(string! goal, string! executionPlan, string! priorDsl, Penghou.Fuwen.WorkflowPlan! priorPlan, Penghou.Guihua.WorkflowPatch! patch, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.AuthoredRevision!>!
+Penghou.Guihua.IWorkflowPatchProposer
+Penghou.Guihua.IWorkflowPatchProposer.ProposeAsync(string! goal, Penghou.Guihua.PlanningDesign! current, string! executionPlan, System.Collections.Generic.IReadOnlyList<string!>! changedArtifacts, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.ProposedRevision!>!
+Penghou.Guihua.PatchPreservationValidator
+Penghou.Guihua.PlannedStage
+Penghou.Guihua.PlannedStage.<Clone>$() -> Penghou.Guihua.PlannedStage!
+Penghou.Guihua.PlannedStage.DependsOn.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlannedStage.DependsOn.init -> void
+Penghou.Guihua.PlannedStage.Equals(Penghou.Guihua.PlannedStage? other) -> bool
+Penghou.Guihua.PlannedStage.InputArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlannedStage.InputArtifacts.init -> void
+Penghou.Guihua.PlannedStage.Name.get -> string!
+Penghou.Guihua.PlannedStage.Name.init -> void
+Penghou.Guihua.PlannedStage.PlannedStage() -> void
+Penghou.Guihua.PlannedStage.StageId.get -> string!
+Penghou.Guihua.PlannedStage.StageId.init -> void
+Penghou.Guihua.PlanningAction
+Penghou.Guihua.PlanningAction.Expand = 0 -> Penghou.Guihua.PlanningAction
+Penghou.Guihua.PlanningAction.Finish = 3 -> Penghou.Guihua.PlanningAction
+Penghou.Guihua.PlanningAction.Revise = 1 -> Penghou.Guihua.PlanningAction
+Penghou.Guihua.PlanningAction.Validate = 2 -> Penghou.Guihua.PlanningAction
+Penghou.Guihua.PlanningArtifactCatalog
+Penghou.Guihua.PlanningArtifactCatalog.GetAsync(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord?>!
+Penghou.Guihua.PlanningArtifactCatalog.GetCurrentAsync(string! workflowId, Penghou.Guihua.PlanningArtifactKey! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord?>!
+Penghou.Guihua.PlanningArtifactCatalog.InvalidateAsync(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! changed, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactImpact!>!
+Penghou.Guihua.PlanningArtifactCatalog.ListCurrentAsync(string! workflowId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>!>!
+Penghou.Guihua.PlanningArtifactCatalog.ListRevisionsAsync(string! workflowId, Penghou.Guihua.PlanningArtifactKey! key, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>!>!
+Penghou.Guihua.PlanningArtifactCatalog.PlanningArtifactCatalog(Penghou.Guihua.IArtifactRepository! contentStore) -> void
+Penghou.Guihua.PlanningArtifactCatalog.PublishAsync<TPayload>(Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord!>!
+Penghou.Guihua.PlanningArtifactCatalog.ReadPayloadAsync<TPayload>(Penghou.Guihua.PlanningArtifactRecord! record, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<TPayload>!
+Penghou.Guihua.PlanningArtifactCatalog.RevalidateAsync(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! version, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningArtifactRecord!>!
+Penghou.Guihua.PlanningArtifactImpact
+Penghou.Guihua.PlanningArtifactImpact.<Clone>$() -> Penghou.Guihua.PlanningArtifactImpact!
+Penghou.Guihua.PlanningArtifactImpact.Affected.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>!
+Penghou.Guihua.PlanningArtifactImpact.Affected.init -> void
+Penghou.Guihua.PlanningArtifactImpact.Deconstruct(out Penghou.Guihua.PlanningArtifactVersion! Root, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>! Affected) -> void
+Penghou.Guihua.PlanningArtifactImpact.Equals(Penghou.Guihua.PlanningArtifactImpact? other) -> bool
+Penghou.Guihua.PlanningArtifactImpact.PlanningArtifactImpact(Penghou.Guihua.PlanningArtifactVersion! Root, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactRecord!>! Affected) -> void
+Penghou.Guihua.PlanningArtifactImpact.Root.get -> Penghou.Guihua.PlanningArtifactVersion!
+Penghou.Guihua.PlanningArtifactImpact.Root.init -> void
+Penghou.Guihua.PlanningArtifactKey
+Penghou.Guihua.PlanningArtifactKey.<Clone>$() -> Penghou.Guihua.PlanningArtifactKey!
+Penghou.Guihua.PlanningArtifactKey.Deconstruct(out string! Kind, out string! Name) -> void
+Penghou.Guihua.PlanningArtifactKey.Equals(Penghou.Guihua.PlanningArtifactKey? other) -> bool
+Penghou.Guihua.PlanningArtifactKey.Kind.get -> string!
+Penghou.Guihua.PlanningArtifactKey.Kind.init -> void
+Penghou.Guihua.PlanningArtifactKey.Name.get -> string!
+Penghou.Guihua.PlanningArtifactKey.Name.init -> void
+Penghou.Guihua.PlanningArtifactKey.PlanningArtifactKey(string! Kind, string! Name) -> void
+Penghou.Guihua.PlanningArtifactKey.Value.get -> string!
+Penghou.Guihua.PlanningArtifactNotFoundException
+Penghou.Guihua.PlanningArtifactNotFoundException.PlanningArtifactNotFoundException(string! workflowId, Penghou.Guihua.PlanningArtifactVersion! version) -> void
+Penghou.Guihua.PlanningArtifactNotFoundException.Version.get -> Penghou.Guihua.PlanningArtifactVersion!
+Penghou.Guihua.PlanningArtifactNotFoundException.WorkflowId.get -> string!
+Penghou.Guihua.PlanningArtifactRecord
+Penghou.Guihua.PlanningArtifactRecord.<Clone>$() -> Penghou.Guihua.PlanningArtifactRecord!
+Penghou.Guihua.PlanningArtifactRecord.Content.get -> Penghou.Guihua.ArtifactReference!
+Penghou.Guihua.PlanningArtifactRecord.Content.init -> void
+Penghou.Guihua.PlanningArtifactRecord.CreatedAt.get -> System.DateTimeOffset
+Penghou.Guihua.PlanningArtifactRecord.CreatedAt.init -> void
+Penghou.Guihua.PlanningArtifactRecord.Deconstruct(out Penghou.Guihua.PlanningArtifactVersion! Version, out Penghou.Guihua.ArtifactReference! Content, out string! WorkflowId, out string! ProducedBy, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactVersion!>! Inputs, out Penghou.Guihua.PlanningArtifactState State, out System.DateTimeOffset CreatedAt) -> void
+Penghou.Guihua.PlanningArtifactRecord.Equals(Penghou.Guihua.PlanningArtifactRecord? other) -> bool
+Penghou.Guihua.PlanningArtifactRecord.Inputs.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactVersion!>!
+Penghou.Guihua.PlanningArtifactRecord.Inputs.init -> void
+Penghou.Guihua.PlanningArtifactRecord.Key.get -> Penghou.Guihua.PlanningArtifactKey!
+Penghou.Guihua.PlanningArtifactRecord.PlanningArtifactRecord(Penghou.Guihua.PlanningArtifactVersion! Version, Penghou.Guihua.ArtifactReference! Content, string! WorkflowId, string! ProducedBy, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactVersion!>! Inputs, Penghou.Guihua.PlanningArtifactState State, System.DateTimeOffset CreatedAt) -> void
+Penghou.Guihua.PlanningArtifactRecord.ProducedBy.get -> string!
+Penghou.Guihua.PlanningArtifactRecord.ProducedBy.init -> void
+Penghou.Guihua.PlanningArtifactRecord.Revision.get -> int
+Penghou.Guihua.PlanningArtifactRecord.SessionId.get -> string?
+Penghou.Guihua.PlanningArtifactRecord.SessionId.init -> void
+Penghou.Guihua.PlanningArtifactRecord.State.get -> Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PlanningArtifactRecord.State.init -> void
+Penghou.Guihua.PlanningArtifactRecord.Version.get -> Penghou.Guihua.PlanningArtifactVersion!
+Penghou.Guihua.PlanningArtifactRecord.Version.init -> void
+Penghou.Guihua.PlanningArtifactRecord.WorkflowId.get -> string!
+Penghou.Guihua.PlanningArtifactRecord.WorkflowId.init -> void
+Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PlanningArtifactState.Candidate = 0 -> Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PlanningArtifactState.Stale = 2 -> Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PlanningArtifactState.Superseded = 3 -> Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PlanningArtifactState.Valid = 1 -> Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PlanningArtifactVersion
+Penghou.Guihua.PlanningArtifactVersion.<Clone>$() -> Penghou.Guihua.PlanningArtifactVersion!
+Penghou.Guihua.PlanningArtifactVersion.Deconstruct(out Penghou.Guihua.PlanningArtifactKey! Key, out int Revision) -> void
+Penghou.Guihua.PlanningArtifactVersion.Equals(Penghou.Guihua.PlanningArtifactVersion? other) -> bool
+Penghou.Guihua.PlanningArtifactVersion.Key.get -> Penghou.Guihua.PlanningArtifactKey!
+Penghou.Guihua.PlanningArtifactVersion.Key.init -> void
+Penghou.Guihua.PlanningArtifactVersion.PlanningArtifactVersion(Penghou.Guihua.PlanningArtifactKey! Key, int Revision) -> void
+Penghou.Guihua.PlanningArtifactVersion.Revision.get -> int
+Penghou.Guihua.PlanningArtifactVersion.Revision.init -> void
+Penghou.Guihua.PlanningArtifactVersion.Value.get -> string!
+Penghou.Guihua.PlanningBinding
+Penghou.Guihua.PlanningBinding.<Clone>$() -> Penghou.Guihua.PlanningBinding!
+Penghou.Guihua.PlanningBinding.Capability.get -> string!
+Penghou.Guihua.PlanningBinding.Capability.init -> void
+Penghou.Guihua.PlanningBinding.ContextArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningBinding.ContextArtifacts.init -> void
+Penghou.Guihua.PlanningBinding.Descriptor.get -> Penghou.Fuwen.DescriptorReference!
+Penghou.Guihua.PlanningBinding.Descriptor.init -> void
+Penghou.Guihua.PlanningBinding.Equals(Penghou.Guihua.PlanningBinding? other) -> bool
+Penghou.Guihua.PlanningBinding.ModelProfile.get -> string!
+Penghou.Guihua.PlanningBinding.ModelProfile.init -> void
+Penghou.Guihua.PlanningBinding.PlanningBinding() -> void
+Penghou.Guihua.PlanningBinding.Role.get -> string!
+Penghou.Guihua.PlanningBinding.Role.init -> void
+Penghou.Guihua.PlanningBindings
+Penghou.Guihua.PlanningBindings.<Clone>$() -> Penghou.Guihua.PlanningBindings!
+Penghou.Guihua.PlanningBindings.Equals(Penghou.Guihua.PlanningBindings? other) -> bool
+Penghou.Guihua.PlanningBindings.Nodes.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningNodeBinding!>!
+Penghou.Guihua.PlanningBindings.Nodes.init -> void
+Penghou.Guihua.PlanningBindings.PlanningBindings() -> void
+Penghou.Guihua.PlanningBindings.WorkflowName.get -> string!
+Penghou.Guihua.PlanningBindings.WorkflowName.init -> void
+Penghou.Guihua.PlanningCheckpoint
+Penghou.Guihua.PlanningCheckpoint.<Clone>$() -> Penghou.Guihua.PlanningCheckpoint!
+Penghou.Guihua.PlanningCheckpoint.ConsecutiveNoOps.get -> int
+Penghou.Guihua.PlanningCheckpoint.ConsecutiveNoOps.init -> void
+Penghou.Guihua.PlanningCheckpoint.DecisionLog.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningCheckpoint.DecisionLog.init -> void
+Penghou.Guihua.PlanningCheckpoint.Design.get -> Penghou.Guihua.PlanningDesign!
+Penghou.Guihua.PlanningCheckpoint.Design.init -> void
+Penghou.Guihua.PlanningCheckpoint.DesignFingerprint.get -> string!
+Penghou.Guihua.PlanningCheckpoint.DesignFingerprint.init -> void
+Penghou.Guihua.PlanningCheckpoint.Dsl.get -> string!
+Penghou.Guihua.PlanningCheckpoint.Dsl.init -> void
+Penghou.Guihua.PlanningCheckpoint.Equals(Penghou.Guihua.PlanningCheckpoint? other) -> bool
+Penghou.Guihua.PlanningCheckpoint.Iteration.get -> int
+Penghou.Guihua.PlanningCheckpoint.Iteration.init -> void
+Penghou.Guihua.PlanningCheckpoint.KnownArtifactRevisions.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningCheckpoint.KnownArtifactRevisions.init -> void
+Penghou.Guihua.PlanningCheckpoint.ModelCalls.get -> int
+Penghou.Guihua.PlanningCheckpoint.ModelCalls.init -> void
+Penghou.Guihua.PlanningCheckpoint.Mutations.get -> int
+Penghou.Guihua.PlanningCheckpoint.Mutations.init -> void
+Penghou.Guihua.PlanningCheckpoint.PlanningCheckpoint() -> void
+Penghou.Guihua.PlanningCheckpoint.ReportedTokens.get -> int?
+Penghou.Guihua.PlanningCheckpoint.ReportedTokens.init -> void
+Penghou.Guihua.PlanningCheckpoint.Status.get -> Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningCheckpoint.Status.init -> void
+Penghou.Guihua.PlanningCheckpoint.StructuralIterations.get -> int
+Penghou.Guihua.PlanningCheckpoint.StructuralIterations.init -> void
+Penghou.Guihua.PlanningCheckpoint.TerminalReason.get -> string?
+Penghou.Guihua.PlanningCheckpoint.TerminalReason.init -> void
+Penghou.Guihua.PlanningCheckpoint.WorkflowId.get -> string!
+Penghou.Guihua.PlanningCheckpoint.WorkflowId.init -> void
+Penghou.Guihua.PlanningCheckpoint.WorkflowVersion.get -> string!
+Penghou.Guihua.PlanningCheckpoint.WorkflowVersion.init -> void
+Penghou.Guihua.PlanningDecision
+Penghou.Guihua.PlanningDecision.<Clone>$() -> Penghou.Guihua.PlanningDecision!
+Penghou.Guihua.PlanningDecision.Action.get -> Penghou.Guihua.PlanningAction
+Penghou.Guihua.PlanningDecision.Action.init -> void
+Penghou.Guihua.PlanningDecision.ArtifactRevisions.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningDecision.ArtifactRevisions.init -> void
+Penghou.Guihua.PlanningDecision.DesignFingerprint.get -> string!
+Penghou.Guihua.PlanningDecision.DesignFingerprint.init -> void
+Penghou.Guihua.PlanningDecision.Equals(Penghou.Guihua.PlanningDecision? other) -> bool
+Penghou.Guihua.PlanningDecision.FinishReason.get -> string?
+Penghou.Guihua.PlanningDecision.FinishReason.init -> void
+Penghou.Guihua.PlanningDecision.MotivatingArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningDecision.MotivatingArtifacts.init -> void
+Penghou.Guihua.PlanningDecision.PlanningDecision() -> void
+Penghou.Guihua.PlanningDecision.ProduceStages.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlannedStage!>!
+Penghou.Guihua.PlanningDecision.ProduceStages.init -> void
+Penghou.Guihua.PlanningDecision.Rationale.get -> string!
+Penghou.Guihua.PlanningDecision.Rationale.init -> void
+Penghou.Guihua.PlanningDecision.WorkflowVersion.get -> string!
+Penghou.Guihua.PlanningDecision.WorkflowVersion.init -> void
+Penghou.Guihua.PlanningDecisionContext
+Penghou.Guihua.PlanningDecisionContext.<Clone>$() -> Penghou.Guihua.PlanningDecisionContext!
+Penghou.Guihua.PlanningDecisionContext.Deconstruct(out string! Goal, out string! ExecutionPlan, out string! DesignFingerprint, out System.Collections.Generic.IReadOnlyList<string!>! FreshArtifactRevisions, out System.Collections.Generic.IReadOnlyList<string!>! SupersededPins, out string! WorkflowVersion, out bool WorkflowComplete, out string! EvidenceSummary, out Penghou.Guihua.PlanningLoopBudget! Remaining, out Penghou.Guihua.PlanningCheckpoint? PriorCheckpoint, out string? PreviousFailure) -> void
+Penghou.Guihua.PlanningDecisionContext.DesignFingerprint.get -> string!
+Penghou.Guihua.PlanningDecisionContext.DesignFingerprint.init -> void
+Penghou.Guihua.PlanningDecisionContext.Equals(Penghou.Guihua.PlanningDecisionContext? other) -> bool
+Penghou.Guihua.PlanningDecisionContext.EvidenceSummary.get -> string!
+Penghou.Guihua.PlanningDecisionContext.EvidenceSummary.init -> void
+Penghou.Guihua.PlanningDecisionContext.ExecutionPlan.get -> string!
+Penghou.Guihua.PlanningDecisionContext.ExecutionPlan.init -> void
+Penghou.Guihua.PlanningDecisionContext.FreshArtifactRevisions.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningDecisionContext.FreshArtifactRevisions.init -> void
+Penghou.Guihua.PlanningDecisionContext.Goal.get -> string!
+Penghou.Guihua.PlanningDecisionContext.Goal.init -> void
+Penghou.Guihua.PlanningDecisionContext.PlanningDecisionContext(string! Goal, string! ExecutionPlan, string! DesignFingerprint, System.Collections.Generic.IReadOnlyList<string!>! FreshArtifactRevisions, System.Collections.Generic.IReadOnlyList<string!>! SupersededPins, string! WorkflowVersion, bool WorkflowComplete, string! EvidenceSummary, Penghou.Guihua.PlanningLoopBudget! Remaining, Penghou.Guihua.PlanningCheckpoint? PriorCheckpoint, string? PreviousFailure = null) -> void
+Penghou.Guihua.PlanningDecisionContext.PreviousFailure.get -> string?
+Penghou.Guihua.PlanningDecisionContext.PreviousFailure.init -> void
+Penghou.Guihua.PlanningDecisionContext.PriorCheckpoint.get -> Penghou.Guihua.PlanningCheckpoint?
+Penghou.Guihua.PlanningDecisionContext.PriorCheckpoint.init -> void
+Penghou.Guihua.PlanningDecisionContext.Remaining.get -> Penghou.Guihua.PlanningLoopBudget!
+Penghou.Guihua.PlanningDecisionContext.Remaining.init -> void
+Penghou.Guihua.PlanningDecisionContext.SupersededPins.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningDecisionContext.SupersededPins.init -> void
+Penghou.Guihua.PlanningDecisionContext.WorkflowComplete.get -> bool
+Penghou.Guihua.PlanningDecisionContext.WorkflowComplete.init -> void
+Penghou.Guihua.PlanningDecisionContext.WorkflowVersion.get -> string!
+Penghou.Guihua.PlanningDecisionContext.WorkflowVersion.init -> void
+Penghou.Guihua.PlanningDecisionResult
+Penghou.Guihua.PlanningDecisionResult.<Clone>$() -> Penghou.Guihua.PlanningDecisionResult!
+Penghou.Guihua.PlanningDecisionResult.Decision.get -> Penghou.Guihua.PlanningDecision?
+Penghou.Guihua.PlanningDecisionResult.Decision.init -> void
+Penghou.Guihua.PlanningDecisionResult.Deconstruct(out bool Succeeded, out Penghou.Guihua.PlanningDecision? Decision, out int ModelCalls, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.PlanningDecisionResult.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningDecisionResult.Diagnostics.init -> void
+Penghou.Guihua.PlanningDecisionResult.Equals(Penghou.Guihua.PlanningDecisionResult? other) -> bool
+Penghou.Guihua.PlanningDecisionResult.ModelCalls.get -> int
+Penghou.Guihua.PlanningDecisionResult.ModelCalls.init -> void
+Penghou.Guihua.PlanningDecisionResult.PlanningDecisionResult(bool Succeeded, Penghou.Guihua.PlanningDecision? Decision, int ModelCalls, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.PlanningDecisionResult.Succeeded.get -> bool
+Penghou.Guihua.PlanningDecisionResult.Succeeded.init -> void
+Penghou.Guihua.PlanningDesign
+Penghou.Guihua.PlanningDesign.<Clone>$() -> Penghou.Guihua.PlanningDesign!
+Penghou.Guihua.PlanningDesign.Bindings.get -> Penghou.Guihua.PlanningBindings!
+Penghou.Guihua.PlanningDesign.Bindings.init -> void
+Penghou.Guihua.PlanningDesign.Deconstruct(out Penghou.Guihua.PlanningGraph! Graph, out Penghou.Guihua.PlanningBindings! Bindings) -> void
+Penghou.Guihua.PlanningDesign.Equals(Penghou.Guihua.PlanningDesign? other) -> bool
+Penghou.Guihua.PlanningDesign.Graph.get -> Penghou.Guihua.PlanningGraph!
+Penghou.Guihua.PlanningDesign.Graph.init -> void
+Penghou.Guihua.PlanningDesign.PlanningDesign(Penghou.Guihua.PlanningGraph! Graph, Penghou.Guihua.PlanningBindings! Bindings) -> void
+Penghou.Guihua.PlanningDesignIdentity
+Penghou.Guihua.PlanningGraph
+Penghou.Guihua.PlanningGraph.<Clone>$() -> Penghou.Guihua.PlanningGraph!
+Penghou.Guihua.PlanningGraph.Equals(Penghou.Guihua.PlanningGraph? other) -> bool
+Penghou.Guihua.PlanningGraph.InputType.get -> string!
+Penghou.Guihua.PlanningGraph.InputType.init -> void
+Penghou.Guihua.PlanningGraph.OutputType.get -> string!
+Penghou.Guihua.PlanningGraph.OutputType.init -> void
+Penghou.Guihua.PlanningGraph.PlanningGraph() -> void
+Penghou.Guihua.PlanningGraph.Steps.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStep!>!
+Penghou.Guihua.PlanningGraph.Steps.init -> void
+Penghou.Guihua.PlanningGraph.WorkflowName.get -> string!
+Penghou.Guihua.PlanningGraph.WorkflowName.init -> void
+Penghou.Guihua.PlanningGraphAssemblyResult
+Penghou.Guihua.PlanningGraphAssemblyResult.<Clone>$() -> Penghou.Guihua.PlanningGraphAssemblyResult!
+Penghou.Guihua.PlanningGraphAssemblyResult.Deconstruct(out Penghou.Guihua.PlanningDesign! Design, out System.Collections.Generic.IReadOnlyList<string!>! SkippedKinds) -> void
+Penghou.Guihua.PlanningGraphAssemblyResult.Design.get -> Penghou.Guihua.PlanningDesign!
+Penghou.Guihua.PlanningGraphAssemblyResult.Design.init -> void
+Penghou.Guihua.PlanningGraphAssemblyResult.Equals(Penghou.Guihua.PlanningGraphAssemblyResult? other) -> bool
+Penghou.Guihua.PlanningGraphAssemblyResult.PlanningGraphAssemblyResult(Penghou.Guihua.PlanningDesign! Design, System.Collections.Generic.IReadOnlyList<string!>! SkippedKinds) -> void
+Penghou.Guihua.PlanningGraphAssemblyResult.SkippedKinds.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningGraphAssemblyResult.SkippedKinds.init -> void
+Penghou.Guihua.PlanningGraphFragment
+Penghou.Guihua.PlanningGraphFragment.<Clone>$() -> Penghou.Guihua.PlanningGraphFragment!
+Penghou.Guihua.PlanningGraphFragment.Bindings.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningNodeBinding!>!
+Penghou.Guihua.PlanningGraphFragment.Bindings.init -> void
+Penghou.Guihua.PlanningGraphFragment.Deconstruct(out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStep!>! Steps, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningNodeBinding!>! Bindings) -> void
+Penghou.Guihua.PlanningGraphFragment.Equals(Penghou.Guihua.PlanningGraphFragment? other) -> bool
+Penghou.Guihua.PlanningGraphFragment.PlanningGraphFragment(System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStep!>! Steps, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningNodeBinding!>! Bindings) -> void
+Penghou.Guihua.PlanningGraphFragment.Steps.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStep!>!
+Penghou.Guihua.PlanningGraphFragment.Steps.init -> void
+Penghou.Guihua.PlanningGraphFragmentAssembler
+Penghou.Guihua.PlanningGraphFragmentInput
+Penghou.Guihua.PlanningGraphFragmentInput.<Clone>$() -> Penghou.Guihua.PlanningGraphFragmentInput!
+Penghou.Guihua.PlanningGraphFragmentInput.ArtifactKind.get -> string!
+Penghou.Guihua.PlanningGraphFragmentInput.ArtifactKind.init -> void
+Penghou.Guihua.PlanningGraphFragmentInput.Artifacts.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.FragmentArtifact!>!
+Penghou.Guihua.PlanningGraphFragmentInput.Artifacts.init -> void
+Penghou.Guihua.PlanningGraphFragmentInput.Deconstruct(out string! ArtifactKind, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.FragmentArtifact!>! Artifacts, out Penghou.Fuwen.DescriptorReference! Descriptor) -> void
+Penghou.Guihua.PlanningGraphFragmentInput.Descriptor.get -> Penghou.Fuwen.DescriptorReference!
+Penghou.Guihua.PlanningGraphFragmentInput.Descriptor.init -> void
+Penghou.Guihua.PlanningGraphFragmentInput.Equals(Penghou.Guihua.PlanningGraphFragmentInput? other) -> bool
+Penghou.Guihua.PlanningGraphFragmentInput.PlanningGraphFragmentInput(string! ArtifactKind, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.FragmentArtifact!>! Artifacts, Penghou.Fuwen.DescriptorReference! Descriptor) -> void
+Penghou.Guihua.PlanningGraphSummary
+Penghou.Guihua.PlanningLoop
+Penghou.Guihua.PlanningLoop.PlanningLoop(Penghou.Guihua.IPlanningDecider! decider, Penghou.Guihua.IWorkflowPatchProposer! proposer, Penghou.Guihua.IWorkflowAuthor! author, Penghou.Guihua.IPlanningExecutionHost! executionHost, Penghou.Guihua.IPlanningArtifactCatalog! catalog, Penghou.Guihua.PlanningLoopPolicy! policy, Penghou.Guihua.IPlanningDslCompiler! dslCompiler, Penghou.Guihua.PlanningStageRunner? stageRunner = null) -> void
+Penghou.Guihua.PlanningLoop.RunAsync(string! workflowId, string! goal, Penghou.Guihua.PlanningDesign! initial, string! initialDsl, string! catalogueSummary, string! model, int maxTokens = 4000, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningLoopOutcome!>!
+Penghou.Guihua.PlanningLoopBudget
+Penghou.Guihua.PlanningLoopBudget.<Clone>$() -> Penghou.Guihua.PlanningLoopBudget!
+Penghou.Guihua.PlanningLoopBudget.Deconstruct(out int IterationsRemaining, out int MutationsRemaining, out int StructuralIterationsRemaining, out int ModelCallsRemaining, out int? TokensRemaining) -> void
+Penghou.Guihua.PlanningLoopBudget.Equals(Penghou.Guihua.PlanningLoopBudget? other) -> bool
+Penghou.Guihua.PlanningLoopBudget.IterationsRemaining.get -> int
+Penghou.Guihua.PlanningLoopBudget.IterationsRemaining.init -> void
+Penghou.Guihua.PlanningLoopBudget.ModelCallsRemaining.get -> int
+Penghou.Guihua.PlanningLoopBudget.ModelCallsRemaining.init -> void
+Penghou.Guihua.PlanningLoopBudget.MutationsRemaining.get -> int
+Penghou.Guihua.PlanningLoopBudget.MutationsRemaining.init -> void
+Penghou.Guihua.PlanningLoopBudget.PlanningLoopBudget(int IterationsRemaining, int MutationsRemaining, int StructuralIterationsRemaining, int ModelCallsRemaining, int? TokensRemaining) -> void
+Penghou.Guihua.PlanningLoopBudget.StructuralIterationsRemaining.get -> int
+Penghou.Guihua.PlanningLoopBudget.StructuralIterationsRemaining.init -> void
+Penghou.Guihua.PlanningLoopBudget.TokensRemaining.get -> int?
+Penghou.Guihua.PlanningLoopBudget.TokensRemaining.init -> void
+Penghou.Guihua.PlanningLoopOutcome
+Penghou.Guihua.PlanningLoopOutcome.<Clone>$() -> Penghou.Guihua.PlanningLoopOutcome!
+Penghou.Guihua.PlanningLoopOutcome.Checkpoint.get -> Penghou.Guihua.PlanningCheckpoint!
+Penghou.Guihua.PlanningLoopOutcome.Checkpoint.init -> void
+Penghou.Guihua.PlanningLoopOutcome.Deconstruct(out Penghou.Guihua.PlanningLoopStatus Status, out string! Reason, out Penghou.Guihua.PlanningCheckpoint! Checkpoint, out Penghou.Guihua.PlanningDesign! FinalDesign) -> void
+Penghou.Guihua.PlanningLoopOutcome.Equals(Penghou.Guihua.PlanningLoopOutcome? other) -> bool
+Penghou.Guihua.PlanningLoopOutcome.FinalDesign.get -> Penghou.Guihua.PlanningDesign!
+Penghou.Guihua.PlanningLoopOutcome.FinalDesign.init -> void
+Penghou.Guihua.PlanningLoopOutcome.PlanningLoopOutcome(Penghou.Guihua.PlanningLoopStatus Status, string! Reason, Penghou.Guihua.PlanningCheckpoint! Checkpoint, Penghou.Guihua.PlanningDesign! FinalDesign) -> void
+Penghou.Guihua.PlanningLoopOutcome.Reason.get -> string!
+Penghou.Guihua.PlanningLoopOutcome.Reason.init -> void
+Penghou.Guihua.PlanningLoopOutcome.Status.get -> Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningLoopOutcome.Status.init -> void
+Penghou.Guihua.PlanningLoopPolicy
+Penghou.Guihua.PlanningLoopPolicy.<Clone>$() -> Penghou.Guihua.PlanningLoopPolicy!
+Penghou.Guihua.PlanningLoopPolicy.Equals(Penghou.Guihua.PlanningLoopPolicy? other) -> bool
+Penghou.Guihua.PlanningLoopPolicy.MaxConsecutiveNoOps.get -> int
+Penghou.Guihua.PlanningLoopPolicy.MaxConsecutiveNoOps.init -> void
+Penghou.Guihua.PlanningLoopPolicy.MaxIterations.get -> int
+Penghou.Guihua.PlanningLoopPolicy.MaxIterations.init -> void
+Penghou.Guihua.PlanningLoopPolicy.MaxModelCalls.get -> int
+Penghou.Guihua.PlanningLoopPolicy.MaxModelCalls.init -> void
+Penghou.Guihua.PlanningLoopPolicy.MaxMutations.get -> int
+Penghou.Guihua.PlanningLoopPolicy.MaxMutations.init -> void
+Penghou.Guihua.PlanningLoopPolicy.MaxPlanningDepth.get -> int
+Penghou.Guihua.PlanningLoopPolicy.MaxPlanningDepth.init -> void
+Penghou.Guihua.PlanningLoopPolicy.MaxTotalTokens.get -> int?
+Penghou.Guihua.PlanningLoopPolicy.MaxTotalTokens.init -> void
+Penghou.Guihua.PlanningLoopPolicy.MaxWorkflowNodes.get -> int
+Penghou.Guihua.PlanningLoopPolicy.MaxWorkflowNodes.init -> void
+Penghou.Guihua.PlanningLoopPolicy.PlanningLoopPolicy() -> void
+Penghou.Guihua.PlanningLoopPolicy.Validate() -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningLoopStatus.Exhausted = 2 -> Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningLoopStatus.Failed = 3 -> Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningLoopStatus.Finished = 1 -> Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningLoopStatus.Running = 0 -> Penghou.Guihua.PlanningLoopStatus
+Penghou.Guihua.PlanningNodeBinding
+Penghou.Guihua.PlanningNodeBinding.<Clone>$() -> Penghou.Guihua.PlanningNodeBinding!
+Penghou.Guihua.PlanningNodeBinding.Binding.get -> Penghou.Guihua.PlanningBinding!
+Penghou.Guihua.PlanningNodeBinding.Binding.init -> void
+Penghou.Guihua.PlanningNodeBinding.Equals(Penghou.Guihua.PlanningNodeBinding? other) -> bool
+Penghou.Guihua.PlanningNodeBinding.PlanningNodeBinding() -> void
+Penghou.Guihua.PlanningNodeBinding.StepId.get -> string!
+Penghou.Guihua.PlanningNodeBinding.StepId.init -> void
+Penghou.Guihua.PlanningStageCatalogue
+Penghou.Guihua.PlanningStageCatalogue.<Clone>$() -> Penghou.Guihua.PlanningStageCatalogue!
+Penghou.Guihua.PlanningStageCatalogue.Definitions.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStageDefinition!>!
+Penghou.Guihua.PlanningStageCatalogue.Definitions.init -> void
+Penghou.Guihua.PlanningStageCatalogue.Equals(Penghou.Guihua.PlanningStageCatalogue? other) -> bool
+Penghou.Guihua.PlanningStageCatalogue.PlanningStageCatalogue() -> void
+Penghou.Guihua.PlanningStageCatalogue.Version.get -> string!
+Penghou.Guihua.PlanningStageCatalogue.Version.init -> void
+Penghou.Guihua.PlanningStageCatalogueSummary
+Penghou.Guihua.PlanningStageDefinition
+Penghou.Guihua.PlanningStageDefinition.<Clone>$() -> Penghou.Guihua.PlanningStageDefinition!
+Penghou.Guihua.PlanningStageDefinition.ArtifactKind.get -> string!
+Penghou.Guihua.PlanningStageDefinition.ArtifactKind.init -> void
+Penghou.Guihua.PlanningStageDefinition.Equals(Penghou.Guihua.PlanningStageDefinition? other) -> bool
+Penghou.Guihua.PlanningStageDefinition.Id.get -> string!
+Penghou.Guihua.PlanningStageDefinition.Id.init -> void
+Penghou.Guihua.PlanningStageDefinition.InputKinds.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStageDefinition.InputKinds.init -> void
+Penghou.Guihua.PlanningStageDefinition.MaxAttempts.get -> int
+Penghou.Guihua.PlanningStageDefinition.MaxAttempts.init -> void
+Penghou.Guihua.PlanningStageDefinition.ModelProfile.get -> string!
+Penghou.Guihua.PlanningStageDefinition.ModelProfile.init -> void
+Penghou.Guihua.PlanningStageDefinition.OutputSchema.get -> string!
+Penghou.Guihua.PlanningStageDefinition.OutputSchema.init -> void
+Penghou.Guihua.PlanningStageDefinition.PlanningStageDefinition() -> void
+Penghou.Guihua.PlanningStageDefinition.SystemPack.get -> string!
+Penghou.Guihua.PlanningStageDefinition.SystemPack.init -> void
+Penghou.Guihua.PlanningStageDefinition.UserPack.get -> string!
+Penghou.Guihua.PlanningStageDefinition.UserPack.init -> void
+Penghou.Guihua.PlanningStagePlan
+Penghou.Guihua.PlanningStagePlan.<Clone>$() -> Penghou.Guihua.PlanningStagePlan!
+Penghou.Guihua.PlanningStagePlan.Equals(Penghou.Guihua.PlanningStagePlan? other) -> bool
+Penghou.Guihua.PlanningStagePlan.PlanningStagePlan() -> void
+Penghou.Guihua.PlanningStagePlan.Provenance.get -> Penghou.Guihua.PlanningStagePlanProvenance!
+Penghou.Guihua.PlanningStagePlan.Provenance.init -> void
+Penghou.Guihua.PlanningStagePlan.Rationale.get -> string!
+Penghou.Guihua.PlanningStagePlan.Rationale.init -> void
+Penghou.Guihua.PlanningStagePlan.Stages.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlannedStage!>!
+Penghou.Guihua.PlanningStagePlan.Stages.init -> void
+Penghou.Guihua.PlanningStagePlanProvenance
+Penghou.Guihua.PlanningStagePlanProvenance.<Clone>$() -> Penghou.Guihua.PlanningStagePlanProvenance!
+Penghou.Guihua.PlanningStagePlanProvenance.DefinitionCatalogueVersion.get -> string!
+Penghou.Guihua.PlanningStagePlanProvenance.DefinitionCatalogueVersion.init -> void
+Penghou.Guihua.PlanningStagePlanProvenance.Equals(Penghou.Guihua.PlanningStagePlanProvenance? other) -> bool
+Penghou.Guihua.PlanningStagePlanProvenance.InputRevisions.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStagePlanProvenance.InputRevisions.init -> void
+Penghou.Guihua.PlanningStagePlanProvenance.PlanningStagePlanProvenance() -> void
+Penghou.Guihua.PlanningStagePlanProvenance.ProducedBy.get -> string!
+Penghou.Guihua.PlanningStagePlanProvenance.ProducedBy.init -> void
+Penghou.Guihua.PlanningStageRunner
+Penghou.Guihua.PlanningStageRunner.Catalogue.get -> Penghou.Guihua.PlanningStageCatalogue!
+Penghou.Guihua.PlanningStageRunner.PlanningStageRunner(Penghou.Guihua.PlanningStageCatalogue! catalogue, System.Collections.Generic.IReadOnlyDictionary<string!, Penghou.Guihua.IPlanningStageExecutor!>! executors, Penghou.Guihua.IPlanningArtifactCatalog! artifactCatalog) -> void
+Penghou.Guihua.PlanningStageRunner.RunAsync(string! workflowId, Penghou.Guihua.PlanningStagePlan! plan, System.Collections.Generic.IReadOnlySet<string!>! knownRevisions, string! request, System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>? seedInputs = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Penghou.Guihua.PlanningStageRunResult!>!
+Penghou.Guihua.PlanningStageRunResult
+Penghou.Guihua.PlanningStageRunResult.<Clone>$() -> Penghou.Guihua.PlanningStageRunResult!
+Penghou.Guihua.PlanningStageRunResult.Deconstruct(out bool Succeeded, out System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>! Outputs, out System.Collections.Generic.IReadOnlyList<string!>! Published, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.PlanningStageRunResult.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStageRunResult.Diagnostics.init -> void
+Penghou.Guihua.PlanningStageRunResult.Equals(Penghou.Guihua.PlanningStageRunResult? other) -> bool
+Penghou.Guihua.PlanningStageRunResult.Outputs.get -> System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>!
+Penghou.Guihua.PlanningStageRunResult.Outputs.init -> void
+Penghou.Guihua.PlanningStageRunResult.PlanningStageRunResult(bool Succeeded, System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>! Outputs, System.Collections.Generic.IReadOnlyList<string!>! Published, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.PlanningStageRunResult.Published.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStageRunResult.Published.init -> void
+Penghou.Guihua.PlanningStageRunResult.Succeeded.get -> bool
+Penghou.Guihua.PlanningStageRunResult.Succeeded.init -> void
+Penghou.Guihua.PlanningStageValidator
+Penghou.Guihua.PlanningStep
+Penghou.Guihua.PlanningStep.<Clone>$() -> Penghou.Guihua.PlanningStep!
+Penghou.Guihua.PlanningStep.AcceptanceCriteria.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStep.AcceptanceCriteria.init -> void
+Penghou.Guihua.PlanningStep.DependsOn.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStep.DependsOn.init -> void
+Penghou.Guihua.PlanningStep.Equals(Penghou.Guihua.PlanningStep? other) -> bool
+Penghou.Guihua.PlanningStep.Id.get -> string!
+Penghou.Guihua.PlanningStep.Id.init -> void
+Penghou.Guihua.PlanningStep.PlanningStep() -> void
+Penghou.Guihua.PlanningStep.RequiredArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.PlanningStep.RequiredArtifacts.init -> void
+Penghou.Guihua.PlanningStep.Title.get -> string!
+Penghou.Guihua.PlanningStep.Title.init -> void
+Penghou.Guihua.ProposedRevision
+Penghou.Guihua.ProposedRevision.<Clone>$() -> Penghou.Guihua.ProposedRevision!
+Penghou.Guihua.ProposedRevision.Applied.get -> Penghou.Guihua.PlanningDesign?
+Penghou.Guihua.ProposedRevision.Applied.init -> void
+Penghou.Guihua.ProposedRevision.Deconstruct(out bool Succeeded, out Penghou.Guihua.WorkflowPatch? Patch, out Penghou.Guihua.PlanningDesign? Applied, out int ModelCalls, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.ProposedRevision.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.ProposedRevision.Diagnostics.init -> void
+Penghou.Guihua.ProposedRevision.Equals(Penghou.Guihua.ProposedRevision? other) -> bool
+Penghou.Guihua.ProposedRevision.ModelCalls.get -> int
+Penghou.Guihua.ProposedRevision.ModelCalls.init -> void
+Penghou.Guihua.ProposedRevision.Patch.get -> Penghou.Guihua.WorkflowPatch?
+Penghou.Guihua.ProposedRevision.Patch.init -> void
+Penghou.Guihua.ProposedRevision.ProposedRevision(bool Succeeded, Penghou.Guihua.WorkflowPatch? Patch, Penghou.Guihua.PlanningDesign? Applied, int ModelCalls, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.ProposedRevision.Succeeded.get -> bool
+Penghou.Guihua.ProposedRevision.Succeeded.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.<Clone>$() -> Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>!
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Deconstruct(out string! WorkflowId, out Penghou.Guihua.PlanningArtifactKey! Key, out int SchemaVersion, out string! ProducedBy, out TPayload Payload, out System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactVersion!>? Inputs, out Penghou.Guihua.PlanningArtifactState State) -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Equals(Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>? other) -> bool
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Inputs.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactVersion!>?
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Inputs.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Key.get -> Penghou.Guihua.PlanningArtifactKey!
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Key.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Payload.get -> TPayload
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.Payload.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.ProducedBy.get -> string!
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.ProducedBy.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.PublishPlanningArtifactRequest(string! WorkflowId, Penghou.Guihua.PlanningArtifactKey! Key, int SchemaVersion, string! ProducedBy, TPayload Payload, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningArtifactVersion!>? Inputs = null, Penghou.Guihua.PlanningArtifactState State = Penghou.Guihua.PlanningArtifactState.Candidate) -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.SchemaVersion.get -> int
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.SchemaVersion.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.SessionId.get -> string?
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.SessionId.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.State.get -> Penghou.Guihua.PlanningArtifactState
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.State.init -> void
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.WorkflowId.get -> string!
+Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.WorkflowId.init -> void
+Penghou.Guihua.RevisionExecutionResult
+Penghou.Guihua.RevisionExecutionResult.<Clone>$() -> Penghou.Guihua.RevisionExecutionResult!
+Penghou.Guihua.RevisionExecutionResult.Deconstruct(out string! WorkflowVersion, out string! EvidenceSummary, out int? ReportedTokens) -> void
+Penghou.Guihua.RevisionExecutionResult.Equals(Penghou.Guihua.RevisionExecutionResult? other) -> bool
+Penghou.Guihua.RevisionExecutionResult.EvidenceSummary.get -> string!
+Penghou.Guihua.RevisionExecutionResult.EvidenceSummary.init -> void
+Penghou.Guihua.RevisionExecutionResult.ReportedTokens.get -> int?
+Penghou.Guihua.RevisionExecutionResult.ReportedTokens.init -> void
+Penghou.Guihua.RevisionExecutionResult.RevisionExecutionResult(string! WorkflowVersion, string! EvidenceSummary, int? ReportedTokens) -> void
+Penghou.Guihua.RevisionExecutionResult.WorkflowVersion.get -> string!
+Penghou.Guihua.RevisionExecutionResult.WorkflowVersion.init -> void
+Penghou.Guihua.StageExecutionInput
+Penghou.Guihua.StageExecutionInput.<Clone>$() -> Penghou.Guihua.StageExecutionInput!
+Penghou.Guihua.StageExecutionInput.Deconstruct(out Penghou.Guihua.PlannedStage! Stage, out Penghou.Guihua.PlanningStageDefinition! Definition, out System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>! UpstreamOutputs, out string! Request, out System.Collections.Generic.IReadOnlyList<string!>! UpstreamOrder) -> void
+Penghou.Guihua.StageExecutionInput.Definition.get -> Penghou.Guihua.PlanningStageDefinition!
+Penghou.Guihua.StageExecutionInput.Definition.init -> void
+Penghou.Guihua.StageExecutionInput.Equals(Penghou.Guihua.StageExecutionInput? other) -> bool
+Penghou.Guihua.StageExecutionInput.Request.get -> string!
+Penghou.Guihua.StageExecutionInput.Request.init -> void
+Penghou.Guihua.StageExecutionInput.Stage.get -> Penghou.Guihua.PlannedStage!
+Penghou.Guihua.StageExecutionInput.Stage.init -> void
+Penghou.Guihua.StageExecutionInput.StageExecutionInput(Penghou.Guihua.PlannedStage! Stage, Penghou.Guihua.PlanningStageDefinition! Definition, System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>! UpstreamOutputs, string! Request, System.Collections.Generic.IReadOnlyList<string!>! UpstreamOrder) -> void
+Penghou.Guihua.StageExecutionInput.UpstreamOrder.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.StageExecutionInput.UpstreamOrder.init -> void
+Penghou.Guihua.StageExecutionInput.UpstreamOutputs.get -> System.Collections.Generic.IReadOnlyDictionary<string!, System.Text.Json.JsonElement>!
+Penghou.Guihua.StageExecutionInput.UpstreamOutputs.init -> void
+Penghou.Guihua.StageExecutionResult
+Penghou.Guihua.StageExecutionResult.<Clone>$() -> Penghou.Guihua.StageExecutionResult!
+Penghou.Guihua.StageExecutionResult.Deconstruct(out bool Succeeded, out System.Text.Json.JsonElement? Output, out System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.StageExecutionResult.Diagnostics.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.StageExecutionResult.Diagnostics.init -> void
+Penghou.Guihua.StageExecutionResult.Equals(Penghou.Guihua.StageExecutionResult? other) -> bool
+Penghou.Guihua.StageExecutionResult.Output.get -> System.Text.Json.JsonElement?
+Penghou.Guihua.StageExecutionResult.Output.init -> void
+Penghou.Guihua.StageExecutionResult.StageExecutionResult(bool Succeeded, System.Text.Json.JsonElement? Output, System.Collections.Generic.IReadOnlyList<string!>! Diagnostics) -> void
+Penghou.Guihua.StageExecutionResult.Succeeded.get -> bool
+Penghou.Guihua.StageExecutionResult.Succeeded.init -> void
+Penghou.Guihua.StepDependencyEdit
+Penghou.Guihua.StepDependencyEdit.<Clone>$() -> Penghou.Guihua.StepDependencyEdit!
+Penghou.Guihua.StepDependencyEdit.DependsOn.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.StepDependencyEdit.DependsOn.init -> void
+Penghou.Guihua.StepDependencyEdit.Equals(Penghou.Guihua.StepDependencyEdit? other) -> bool
+Penghou.Guihua.StepDependencyEdit.StepDependencyEdit() -> void
+Penghou.Guihua.StepDependencyEdit.StepId.get -> string!
+Penghou.Guihua.StepDependencyEdit.StepId.init -> void
+Penghou.Guihua.WorkflowExecutionSnapshot
+Penghou.Guihua.WorkflowExecutionSnapshot.<Clone>$() -> Penghou.Guihua.WorkflowExecutionSnapshot!
+Penghou.Guihua.WorkflowExecutionSnapshot.Deconstruct(out string! WorkflowVersion, out bool IsComplete, out string! EvidenceSummary) -> void
+Penghou.Guihua.WorkflowExecutionSnapshot.Equals(Penghou.Guihua.WorkflowExecutionSnapshot? other) -> bool
+Penghou.Guihua.WorkflowExecutionSnapshot.EvidenceSummary.get -> string!
+Penghou.Guihua.WorkflowExecutionSnapshot.EvidenceSummary.init -> void
+Penghou.Guihua.WorkflowExecutionSnapshot.IsComplete.get -> bool
+Penghou.Guihua.WorkflowExecutionSnapshot.IsComplete.init -> void
+Penghou.Guihua.WorkflowExecutionSnapshot.WorkflowExecutionSnapshot(string! WorkflowVersion, bool IsComplete, string! EvidenceSummary) -> void
+Penghou.Guihua.WorkflowExecutionSnapshot.WorkflowVersion.get -> string!
+Penghou.Guihua.WorkflowExecutionSnapshot.WorkflowVersion.init -> void
+Penghou.Guihua.WorkflowPatch
+Penghou.Guihua.WorkflowPatch.<Clone>$() -> Penghou.Guihua.WorkflowPatch!
+Penghou.Guihua.WorkflowPatch.AddBindings.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningNodeBinding!>!
+Penghou.Guihua.WorkflowPatch.AddBindings.init -> void
+Penghou.Guihua.WorkflowPatch.AddSteps.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStep!>!
+Penghou.Guihua.WorkflowPatch.AddSteps.init -> void
+Penghou.Guihua.WorkflowPatch.AffectedStepIds() -> System.Collections.Generic.IReadOnlySet<string!>!
+Penghou.Guihua.WorkflowPatch.BaseDesignFingerprint.get -> string!
+Penghou.Guihua.WorkflowPatch.BaseDesignFingerprint.init -> void
+Penghou.Guihua.WorkflowPatch.DependencyEdits.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.StepDependencyEdit!>!
+Penghou.Guihua.WorkflowPatch.DependencyEdits.init -> void
+Penghou.Guihua.WorkflowPatch.DerivedFromArtifacts.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.WorkflowPatch.DerivedFromArtifacts.init -> void
+Penghou.Guihua.WorkflowPatch.Equals(Penghou.Guihua.WorkflowPatch? other) -> bool
+Penghou.Guihua.WorkflowPatch.Rationale.get -> string!
+Penghou.Guihua.WorkflowPatch.Rationale.init -> void
+Penghou.Guihua.WorkflowPatch.RemoveStepIds.get -> System.Collections.Generic.IReadOnlyList<string!>!
+Penghou.Guihua.WorkflowPatch.RemoveStepIds.init -> void
+Penghou.Guihua.WorkflowPatch.ReplaceBindings.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningNodeBinding!>!
+Penghou.Guihua.WorkflowPatch.ReplaceBindings.init -> void
+Penghou.Guihua.WorkflowPatch.ReplaceSteps.get -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningStep!>!
+Penghou.Guihua.WorkflowPatch.ReplaceSteps.init -> void
+Penghou.Guihua.WorkflowPatch.WorkflowPatch() -> void
+Penghou.Guihua.WorkflowPatchApplier
+static Penghou.Guihua.ArtifactEnvelope<TPayload>.operator !=(Penghou.Guihua.ArtifactEnvelope<TPayload>? left, Penghou.Guihua.ArtifactEnvelope<TPayload>? right) -> bool
+static Penghou.Guihua.ArtifactEnvelope<TPayload>.operator ==(Penghou.Guihua.ArtifactEnvelope<TPayload>? left, Penghou.Guihua.ArtifactEnvelope<TPayload>? right) -> bool
+static Penghou.Guihua.ArtifactReference.operator !=(Penghou.Guihua.ArtifactReference? left, Penghou.Guihua.ArtifactReference? right) -> bool
+static Penghou.Guihua.ArtifactReference.operator ==(Penghou.Guihua.ArtifactReference? left, Penghou.Guihua.ArtifactReference? right) -> bool
+static Penghou.Guihua.ArtifactWriteRequest<TPayload>.operator !=(Penghou.Guihua.ArtifactWriteRequest<TPayload>? left, Penghou.Guihua.ArtifactWriteRequest<TPayload>? right) -> bool
+static Penghou.Guihua.ArtifactWriteRequest<TPayload>.operator ==(Penghou.Guihua.ArtifactWriteRequest<TPayload>? left, Penghou.Guihua.ArtifactWriteRequest<TPayload>? right) -> bool
+static Penghou.Guihua.AuthoredRevision.operator !=(Penghou.Guihua.AuthoredRevision? left, Penghou.Guihua.AuthoredRevision? right) -> bool
+static Penghou.Guihua.AuthoredRevision.operator ==(Penghou.Guihua.AuthoredRevision? left, Penghou.Guihua.AuthoredRevision? right) -> bool
+static Penghou.Guihua.CanonicalJsonContentHash.Compute(System.Text.Json.JsonElement value) -> string!
+static Penghou.Guihua.CanonicalJsonContentHash.ComputeEnvelopeContent(System.Text.Json.JsonElement envelope) -> string!
+static Penghou.Guihua.FragmentArtifact.operator !=(Penghou.Guihua.FragmentArtifact? left, Penghou.Guihua.FragmentArtifact? right) -> bool
+static Penghou.Guihua.FragmentArtifact.operator ==(Penghou.Guihua.FragmentArtifact? left, Penghou.Guihua.FragmentArtifact? right) -> bool
+static Penghou.Guihua.PatchPreservationValidator.Validate(Penghou.Fuwen.WorkflowPlan! prior, Penghou.Fuwen.WorkflowPlan! candidate, Penghou.Guihua.WorkflowPatch! patch) -> System.Collections.Generic.IReadOnlyList<string!>!
+static Penghou.Guihua.PlannedStage.operator !=(Penghou.Guihua.PlannedStage? left, Penghou.Guihua.PlannedStage? right) -> bool
+static Penghou.Guihua.PlannedStage.operator ==(Penghou.Guihua.PlannedStage? left, Penghou.Guihua.PlannedStage? right) -> bool
+static Penghou.Guihua.PlanningArtifactImpact.operator !=(Penghou.Guihua.PlanningArtifactImpact? left, Penghou.Guihua.PlanningArtifactImpact? right) -> bool
+static Penghou.Guihua.PlanningArtifactImpact.operator ==(Penghou.Guihua.PlanningArtifactImpact? left, Penghou.Guihua.PlanningArtifactImpact? right) -> bool
+static Penghou.Guihua.PlanningArtifactKey.operator !=(Penghou.Guihua.PlanningArtifactKey? left, Penghou.Guihua.PlanningArtifactKey? right) -> bool
+static Penghou.Guihua.PlanningArtifactKey.operator ==(Penghou.Guihua.PlanningArtifactKey? left, Penghou.Guihua.PlanningArtifactKey? right) -> bool
+static Penghou.Guihua.PlanningArtifactRecord.operator !=(Penghou.Guihua.PlanningArtifactRecord? left, Penghou.Guihua.PlanningArtifactRecord? right) -> bool
+static Penghou.Guihua.PlanningArtifactRecord.operator ==(Penghou.Guihua.PlanningArtifactRecord? left, Penghou.Guihua.PlanningArtifactRecord? right) -> bool
+static Penghou.Guihua.PlanningArtifactVersion.operator !=(Penghou.Guihua.PlanningArtifactVersion? left, Penghou.Guihua.PlanningArtifactVersion? right) -> bool
+static Penghou.Guihua.PlanningArtifactVersion.operator ==(Penghou.Guihua.PlanningArtifactVersion? left, Penghou.Guihua.PlanningArtifactVersion? right) -> bool
+static Penghou.Guihua.PlanningBinding.operator !=(Penghou.Guihua.PlanningBinding? left, Penghou.Guihua.PlanningBinding? right) -> bool
+static Penghou.Guihua.PlanningBinding.operator ==(Penghou.Guihua.PlanningBinding? left, Penghou.Guihua.PlanningBinding? right) -> bool
+static Penghou.Guihua.PlanningBindings.operator !=(Penghou.Guihua.PlanningBindings? left, Penghou.Guihua.PlanningBindings? right) -> bool
+static Penghou.Guihua.PlanningBindings.operator ==(Penghou.Guihua.PlanningBindings? left, Penghou.Guihua.PlanningBindings? right) -> bool
+static Penghou.Guihua.PlanningCheckpoint.operator !=(Penghou.Guihua.PlanningCheckpoint? left, Penghou.Guihua.PlanningCheckpoint? right) -> bool
+static Penghou.Guihua.PlanningCheckpoint.operator ==(Penghou.Guihua.PlanningCheckpoint? left, Penghou.Guihua.PlanningCheckpoint? right) -> bool
+static Penghou.Guihua.PlanningDecision.operator !=(Penghou.Guihua.PlanningDecision? left, Penghou.Guihua.PlanningDecision? right) -> bool
+static Penghou.Guihua.PlanningDecision.operator ==(Penghou.Guihua.PlanningDecision? left, Penghou.Guihua.PlanningDecision? right) -> bool
+static Penghou.Guihua.PlanningDecisionContext.operator !=(Penghou.Guihua.PlanningDecisionContext? left, Penghou.Guihua.PlanningDecisionContext? right) -> bool
+static Penghou.Guihua.PlanningDecisionContext.operator ==(Penghou.Guihua.PlanningDecisionContext? left, Penghou.Guihua.PlanningDecisionContext? right) -> bool
+static Penghou.Guihua.PlanningDecisionResult.operator !=(Penghou.Guihua.PlanningDecisionResult? left, Penghou.Guihua.PlanningDecisionResult? right) -> bool
+static Penghou.Guihua.PlanningDecisionResult.operator ==(Penghou.Guihua.PlanningDecisionResult? left, Penghou.Guihua.PlanningDecisionResult? right) -> bool
+static Penghou.Guihua.PlanningDesign.operator !=(Penghou.Guihua.PlanningDesign? left, Penghou.Guihua.PlanningDesign? right) -> bool
+static Penghou.Guihua.PlanningDesign.operator ==(Penghou.Guihua.PlanningDesign? left, Penghou.Guihua.PlanningDesign? right) -> bool
+static Penghou.Guihua.PlanningDesignIdentity.Compute(Penghou.Guihua.PlanningDesign! design) -> string!
+static Penghou.Guihua.PlanningGraph.operator !=(Penghou.Guihua.PlanningGraph? left, Penghou.Guihua.PlanningGraph? right) -> bool
+static Penghou.Guihua.PlanningGraph.operator ==(Penghou.Guihua.PlanningGraph? left, Penghou.Guihua.PlanningGraph? right) -> bool
+static Penghou.Guihua.PlanningGraphAssemblyResult.operator !=(Penghou.Guihua.PlanningGraphAssemblyResult? left, Penghou.Guihua.PlanningGraphAssemblyResult? right) -> bool
+static Penghou.Guihua.PlanningGraphAssemblyResult.operator ==(Penghou.Guihua.PlanningGraphAssemblyResult? left, Penghou.Guihua.PlanningGraphAssemblyResult? right) -> bool
+static Penghou.Guihua.PlanningGraphFragment.operator !=(Penghou.Guihua.PlanningGraphFragment? left, Penghou.Guihua.PlanningGraphFragment? right) -> bool
+static Penghou.Guihua.PlanningGraphFragment.operator ==(Penghou.Guihua.PlanningGraphFragment? left, Penghou.Guihua.PlanningGraphFragment? right) -> bool
+static Penghou.Guihua.PlanningGraphFragmentAssembler.Assemble(string! workflowName, string! inputType, string! outputType, System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlanningGraphFragmentInput!>! inputs, System.Collections.Generic.IReadOnlyDictionary<string!, Penghou.Guihua.IPlanningGraphFragmentBuilder!>! builders) -> Penghou.Guihua.PlanningGraphAssemblyResult!
+static Penghou.Guihua.PlanningGraphFragmentInput.operator !=(Penghou.Guihua.PlanningGraphFragmentInput? left, Penghou.Guihua.PlanningGraphFragmentInput? right) -> bool
+static Penghou.Guihua.PlanningGraphFragmentInput.operator ==(Penghou.Guihua.PlanningGraphFragmentInput? left, Penghou.Guihua.PlanningGraphFragmentInput? right) -> bool
+static Penghou.Guihua.PlanningGraphSummary.Reference(Penghou.Fuwen.DescriptorReference! descriptor) -> string!
+static Penghou.Guihua.PlanningGraphSummary.Render(Penghou.Guihua.PlanningDesign! design) -> string!
+static Penghou.Guihua.PlanningLoopBudget.operator !=(Penghou.Guihua.PlanningLoopBudget? left, Penghou.Guihua.PlanningLoopBudget? right) -> bool
+static Penghou.Guihua.PlanningLoopBudget.operator ==(Penghou.Guihua.PlanningLoopBudget? left, Penghou.Guihua.PlanningLoopBudget? right) -> bool
+static Penghou.Guihua.PlanningLoopOutcome.operator !=(Penghou.Guihua.PlanningLoopOutcome? left, Penghou.Guihua.PlanningLoopOutcome? right) -> bool
+static Penghou.Guihua.PlanningLoopOutcome.operator ==(Penghou.Guihua.PlanningLoopOutcome? left, Penghou.Guihua.PlanningLoopOutcome? right) -> bool
+static Penghou.Guihua.PlanningLoopPolicy.Default.get -> Penghou.Guihua.PlanningLoopPolicy!
+static Penghou.Guihua.PlanningLoopPolicy.operator !=(Penghou.Guihua.PlanningLoopPolicy? left, Penghou.Guihua.PlanningLoopPolicy? right) -> bool
+static Penghou.Guihua.PlanningLoopPolicy.operator ==(Penghou.Guihua.PlanningLoopPolicy? left, Penghou.Guihua.PlanningLoopPolicy? right) -> bool
+static Penghou.Guihua.PlanningNodeBinding.operator !=(Penghou.Guihua.PlanningNodeBinding? left, Penghou.Guihua.PlanningNodeBinding? right) -> bool
+static Penghou.Guihua.PlanningNodeBinding.operator ==(Penghou.Guihua.PlanningNodeBinding? left, Penghou.Guihua.PlanningNodeBinding? right) -> bool
+static Penghou.Guihua.PlanningStageCatalogue.Create(System.Collections.Generic.IEnumerable<Penghou.Guihua.PlanningStageDefinition!>! definitions) -> Penghou.Guihua.PlanningStageCatalogue!
+static Penghou.Guihua.PlanningStageCatalogue.operator !=(Penghou.Guihua.PlanningStageCatalogue? left, Penghou.Guihua.PlanningStageCatalogue? right) -> bool
+static Penghou.Guihua.PlanningStageCatalogue.operator ==(Penghou.Guihua.PlanningStageCatalogue? left, Penghou.Guihua.PlanningStageCatalogue? right) -> bool
+static Penghou.Guihua.PlanningStageCatalogueSummary.Render(Penghou.Guihua.PlanningStageCatalogue! catalogue) -> string!
+static Penghou.Guihua.PlanningStageDefinition.operator !=(Penghou.Guihua.PlanningStageDefinition? left, Penghou.Guihua.PlanningStageDefinition? right) -> bool
+static Penghou.Guihua.PlanningStageDefinition.operator ==(Penghou.Guihua.PlanningStageDefinition? left, Penghou.Guihua.PlanningStageDefinition? right) -> bool
+static Penghou.Guihua.PlanningStagePlan.operator !=(Penghou.Guihua.PlanningStagePlan? left, Penghou.Guihua.PlanningStagePlan? right) -> bool
+static Penghou.Guihua.PlanningStagePlan.operator ==(Penghou.Guihua.PlanningStagePlan? left, Penghou.Guihua.PlanningStagePlan? right) -> bool
+static Penghou.Guihua.PlanningStagePlanProvenance.operator !=(Penghou.Guihua.PlanningStagePlanProvenance? left, Penghou.Guihua.PlanningStagePlanProvenance? right) -> bool
+static Penghou.Guihua.PlanningStagePlanProvenance.operator ==(Penghou.Guihua.PlanningStagePlanProvenance? left, Penghou.Guihua.PlanningStagePlanProvenance? right) -> bool
+static Penghou.Guihua.PlanningStageRunResult.operator !=(Penghou.Guihua.PlanningStageRunResult? left, Penghou.Guihua.PlanningStageRunResult? right) -> bool
+static Penghou.Guihua.PlanningStageRunResult.operator ==(Penghou.Guihua.PlanningStageRunResult? left, Penghou.Guihua.PlanningStageRunResult? right) -> bool
+static Penghou.Guihua.PlanningStageValidator.Order(System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlannedStage!>! stages) -> System.Collections.Generic.IReadOnlyList<Penghou.Guihua.PlannedStage!>!
+static Penghou.Guihua.PlanningStageValidator.Validate(Penghou.Guihua.PlanningStagePlan! plan, Penghou.Guihua.PlanningStageCatalogue! catalogue, System.Collections.Generic.IReadOnlySet<string!>! knownRevisions) -> System.Collections.Generic.IReadOnlyList<string!>!
+static Penghou.Guihua.PlanningStep.operator !=(Penghou.Guihua.PlanningStep? left, Penghou.Guihua.PlanningStep? right) -> bool
+static Penghou.Guihua.PlanningStep.operator ==(Penghou.Guihua.PlanningStep? left, Penghou.Guihua.PlanningStep? right) -> bool
+static Penghou.Guihua.ProposedRevision.operator !=(Penghou.Guihua.ProposedRevision? left, Penghou.Guihua.ProposedRevision? right) -> bool
+static Penghou.Guihua.ProposedRevision.operator ==(Penghou.Guihua.ProposedRevision? left, Penghou.Guihua.ProposedRevision? right) -> bool
+static Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.operator !=(Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>? left, Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>? right) -> bool
+static Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>.operator ==(Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>? left, Penghou.Guihua.PublishPlanningArtifactRequest<TPayload>? right) -> bool
+static Penghou.Guihua.RevisionExecutionResult.operator !=(Penghou.Guihua.RevisionExecutionResult? left, Penghou.Guihua.RevisionExecutionResult? right) -> bool
+static Penghou.Guihua.RevisionExecutionResult.operator ==(Penghou.Guihua.RevisionExecutionResult? left, Penghou.Guihua.RevisionExecutionResult? right) -> bool
+static Penghou.Guihua.StageExecutionInput.operator !=(Penghou.Guihua.StageExecutionInput? left, Penghou.Guihua.StageExecutionInput? right) -> bool
+static Penghou.Guihua.StageExecutionInput.operator ==(Penghou.Guihua.StageExecutionInput? left, Penghou.Guihua.StageExecutionInput? right) -> bool
+static Penghou.Guihua.StageExecutionResult.operator !=(Penghou.Guihua.StageExecutionResult? left, Penghou.Guihua.StageExecutionResult? right) -> bool
+static Penghou.Guihua.StageExecutionResult.operator ==(Penghou.Guihua.StageExecutionResult? left, Penghou.Guihua.StageExecutionResult? right) -> bool
+static Penghou.Guihua.StepDependencyEdit.operator !=(Penghou.Guihua.StepDependencyEdit? left, Penghou.Guihua.StepDependencyEdit? right) -> bool
+static Penghou.Guihua.StepDependencyEdit.operator ==(Penghou.Guihua.StepDependencyEdit? left, Penghou.Guihua.StepDependencyEdit? right) -> bool
+static Penghou.Guihua.WorkflowExecutionSnapshot.operator !=(Penghou.Guihua.WorkflowExecutionSnapshot? left, Penghou.Guihua.WorkflowExecutionSnapshot? right) -> bool
+static Penghou.Guihua.WorkflowExecutionSnapshot.operator ==(Penghou.Guihua.WorkflowExecutionSnapshot? left, Penghou.Guihua.WorkflowExecutionSnapshot? right) -> bool
+static Penghou.Guihua.WorkflowPatch.operator !=(Penghou.Guihua.WorkflowPatch? left, Penghou.Guihua.WorkflowPatch? right) -> bool
+static Penghou.Guihua.WorkflowPatch.operator ==(Penghou.Guihua.WorkflowPatch? left, Penghou.Guihua.WorkflowPatch? right) -> bool
+static Penghou.Guihua.WorkflowPatchApplier.Apply(Penghou.Guihua.PlanningDesign! current, Penghou.Guihua.WorkflowPatch! patch) -> Penghou.Guihua.PlanningDesign!

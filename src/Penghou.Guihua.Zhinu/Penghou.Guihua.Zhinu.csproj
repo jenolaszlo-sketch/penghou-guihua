@@ -19,4 +19,9 @@
     <PackageReference Include="Penghou.Zhinu" Version="0.1.0-preview.14" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
+  </ItemGroup>
+
 </Project>

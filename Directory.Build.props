@@ -10,8 +10,10 @@
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
     <EnablePackageValidation Condition="'$(IsPackable)' == 'true'">true</EnablePackageValidation>
-    <!-- No PublicApiAnalyzers during preview churn; add with Shipped/Unshipped files before stable. -->
-    <NoWarn>$(NoWarn);RS0026;RS0027;CS1591</NoWarn>
+    <!-- Public API baselines are enforced: Shipped is empty during preview and
+         every public API is declared in Unshipped. Promote entries to Shipped
+         only when the contract freezes. -->
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
     <Authors>Penghou.Guihua contributors</Authors>
     <RepositoryUrl>https://github.com/jenolaszlo-sketch/penghou-guihua</RepositoryUrl>
     <PackageProjectUrl>https://github.com/jenolaszlo-sketch/penghou-guihua</PackageProjectUrl>
@@ -25,6 +27,7 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(IsPackable)' == 'true'">
+    <PackageReference Include="Microsoft.CodeAnalysis.PublicApiAnalyzers" Version="5.6.0" PrivateAssets="all" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="10.0.401" PrivateAssets="all" />
     <None Include="$(MSBuildThisFileDirectory)README.md" Pack="true" PackagePath="\" />
   </ItemGroup>

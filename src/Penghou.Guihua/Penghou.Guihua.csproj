@@ -15,4 +15,9 @@
     <PackageReference Include="Penghou.Fuwen" Version="0.1.0-preview.11" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AdditionalFiles Include="PublicAPI.Shipped.txt" />
+    <AdditionalFiles Include="PublicAPI.Unshipped.txt" />
+  </ItemGroup>
+
 </Project>

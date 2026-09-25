@@ -113,9 +113,12 @@ so publish order matters (Fuwen → Guihua → consumers).
 
 ### C — Engineering health
 
-- **Public API baselines deferred by design.** `Directory.Build.props` suppresses
-  `RS0026;RS0027;CS1591` and notes "add with Shipped/Unshipped files before
-  stable". Establish `PublicAPI.Shipped.txt`/`Unshipped.txt` before RC.
+- **Public API baselines — done.** `Microsoft.CodeAnalysis.PublicApiAnalyzers`
+  5.6.0 runs on pack with `PublicAPI.Shipped.txt` (empty during preview) and
+  `PublicAPI.Unshipped.txt` per package (core 860, Baize 296, Zhinu 6
+  entries). Any new, changed, or removed public API fails the build until the
+  baseline is intentionally updated. Promote entries to Shipped only when the
+  contract freezes.
 - **Coverage thresholds — done.** CI enforces coverage per area via
   `coverlet.msbuild`: core ≥ 70, Baize ≥ 50, Zhinu ≥ 45 (line and branch).
   Current baselines: core 83.9/72.8, Baize 75.8/52.5, Zhinu 87.0/47.7.
@@ -143,5 +146,5 @@ software roles, product artifact schemas — stay in the consumers.
    comparison and Zhinu generation cutover land; then add the provider-neutral
    patch admission/receipt, transition preview, and reuse/invalidation
    explanation in Gap A, keeping MCP transport and authorization in Marang.
-4. **Pre-stable** — flip PublicApiAnalyzers to Shipped baselines (coverage
-   thresholds and a sample already landed).
+4. **Pre-stable** — promote baselines to Shipped when the contract freezes
+   (coverage thresholds, sample, and analyzer baselines already landed).
