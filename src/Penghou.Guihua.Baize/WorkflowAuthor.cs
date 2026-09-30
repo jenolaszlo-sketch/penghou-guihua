@@ -156,17 +156,26 @@ public sealed class WorkflowAuthor(
         string? previousFailure = null;
         for (var attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            var llmRequest = await promptBuilder.BuildAsync(
-                new WorkflowAuthoringPromptContext(
-                    request,
-                    catalogueSummary,
-                    maxTokens,
-                    previousFailure,
-                    executionPlan,
-                    PriorDsl: patch is null ? null : priorDsl,
-                    ChangedSteps: patch?.AffectedStepIds()
-                        .OrderBy(id => id, StringComparer.Ordinal).ToArray()),
-                cancellationToken).ConfigureAwait(false);
+            LlmRequest llmRequest;
+            try
+            {
+                llmRequest = await promptBuilder.BuildAsync(
+                    new WorkflowAuthoringPromptContext(
+                        request,
+                        catalogueSummary,
+                        maxTokens,
+                        previousFailure,
+                        executionPlan,
+                        PriorDsl: patch is null ? null : priorDsl,
+                        ChangedSteps: patch?.AffectedStepIds()
+                            .OrderBy(id => id, StringComparer.Ordinal).ToArray()),
+                    cancellationToken).ConfigureAwait(false);
+            }
+            catch (PromptTemplateException exception)
+            {
+                attempts.Add(new WorkflowAuthorAttempt(attempt, string.Empty, false, [exception.Message]));
+                return new WorkflowAuthorResult(false, string.Empty, null, attempts, [exception.Message]);
+            }
             var response = await llmRouter.CompleteStreamingAsync(
                 model, llmRequest, cancellationToken: cancellationToken).ConfigureAwait(false);
             if (response is null)

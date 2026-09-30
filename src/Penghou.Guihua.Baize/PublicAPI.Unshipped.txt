@@ -155,6 +155,10 @@ Penghou.Guihua.Baize.PromptTemplate.SystemPromptName.get -> string!
 Penghou.Guihua.Baize.PromptTemplate.SystemPromptName.init -> void
 Penghou.Guihua.Baize.PromptTemplate.UserTemplateName.get -> string!
 Penghou.Guihua.Baize.PromptTemplate.UserTemplateName.init -> void
+Penghou.Guihua.Baize.PromptTemplateException
+Penghou.Guihua.Baize.PromptTemplateException.Phase.get -> string!
+Penghou.Guihua.Baize.PromptTemplateException.PromptTemplateException(string! templateName, string! phase, string! detail, System.Exception? innerException = null) -> void
+Penghou.Guihua.Baize.PromptTemplateException.TemplateName.get -> string!
 Penghou.Guihua.Baize.ScribanPromptTemplateEngine
 Penghou.Guihua.Baize.ScribanPromptTemplateEngine.RenderAsync(string! templateName, object! model, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<string!>!
 Penghou.Guihua.Baize.ScribanPromptTemplateEngine.ScribanPromptTemplateEngine(Penghou.Guihua.Baize.IPromptLoader! promptLoader) -> void

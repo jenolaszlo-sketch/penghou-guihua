@@ -320,7 +320,9 @@ public sealed class FileSystemArtifactRepository : IArtifactRepository
             : _rootPath + Path.DirectorySeparatorChar;
         if (!fullPath.StartsWith(
                 rootPrefix,
-                StringComparison.OrdinalIgnoreCase))
+                OperatingSystem.IsWindows()
+                    ? StringComparison.OrdinalIgnoreCase
+                    : StringComparison.Ordinal))
         {
             throw new ArtifactIntegrityException(
                 "Artifact path escapes the repository root.");

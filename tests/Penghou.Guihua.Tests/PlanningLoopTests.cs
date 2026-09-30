@@ -159,6 +159,35 @@ public sealed class PlanningLoopTests : IDisposable
     };
 
     [Fact]
+    public async Task ConcurrentRunForSameWorkflowIsRejectedWithoutDuplicatingCheckpoint()
+    {
+        var ct = TestContext.Current.CancellationToken;
+        var harness = await CreateHarnessAsync(ct);
+        var decider = new BlockingDecider();
+        var loop = harness.Loop(decider);
+        var first = loop.RunAsync(
+            WorkflowId, Goal, Design(), "prior-dsl", "catalogue summary", "stub", 4000, ct);
+        await decider.Entered.WaitAsync(TimeSpan.FromSeconds(5), ct);
+        try
+        {
+            var second = () => loop.RunAsync(
+                WorkflowId, Goal, Design(), "prior-dsl", "catalogue summary", "stub", 4000, ct);
+            await second.Should().ThrowAsync<InvalidOperationException>()
+                .WithMessage("*already running*");
+        }
+        finally
+        {
+            decider.Release();
+        }
+
+        (await first).Status.Should().Be(PlanningLoopStatus.Finished);
+        (await loop.RunAsync(
+            WorkflowId, Goal, Design(), "prior-dsl", "catalogue summary", "stub", 4000, ct))
+            .Status.Should().Be(PlanningLoopStatus.Finished);
+        decider.Calls.Should().Be(1);
+    }
+
+    [Fact]
     public async Task Loop_expands_once_then_finishes()
     {
         var ct = TestContext.Current.CancellationToken;
@@ -481,6 +510,15 @@ public sealed class PlanningLoopTests : IDisposable
         public ScriptedHost Host { get; } = new();
         public PlanningArtifactCatalog Catalog => catalog;
 
+        public PlanningLoop Loop(IPlanningDecider decider) => new(
+            decider,
+            new ScriptedProposer((_, _) => throw new InvalidOperationException("Unexpected proposal.")),
+            new ScriptedAuthor((_, _, _) => throw new InvalidOperationException("Unexpected authoring.")),
+            Host,
+            catalog,
+            policy,
+            new ScriptedCompiler());
+
         public PlanningLoop Loop(
             ScriptedDecider decider,
             Func<PlanningDesign, IReadOnlyList<string>, (WorkflowPatch Patch, PlanningDesign Applied)> propose,
@@ -606,6 +644,31 @@ public sealed class PlanningLoopTests : IDisposable
             var decision = script[Math.Min(next, script.Count - 1)](observation);
             next++;
             return Task.FromResult(new PlanningDecisionResult(true, decision, 1, []));
+        }
+    }
+
+    private sealed class BlockingDecider : IPlanningDecider
+    {
+        private readonly TaskCompletionSource entered =
+            new(TaskCreationOptions.RunContinuationsAsynchronously);
+        private readonly TaskCompletionSource released =
+            new(TaskCreationOptions.RunContinuationsAsynchronously);
+
+        public Task Entered => entered.Task;
+
+        public int Calls { get; private set; }
+
+        public void Release() => released.TrySetResult();
+
+        public async Task<PlanningDecisionResult> DecideAsync(
+            PlanningDecisionContext observation,
+            CancellationToken cancellationToken = default)
+        {
+            Calls++;
+            entered.TrySetResult();
+            await released.Task.WaitAsync(cancellationToken);
+            return new PlanningDecisionResult(
+                true, FinishFor(observation, "Finished."), 1, []);
         }
     }
 

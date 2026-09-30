@@ -53,15 +53,25 @@ public sealed class PlanningStagePlanProposer(
         string? previousFailure = null;
         for (var attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            var llmRequest = await promptBuilder.BuildAsync(
-                new PlanningBootstrapPromptContext(
-                    goal,
-                    PlanningStageCatalogueSummary.Render(catalogue),
-                    catalogue.Version,
-                    known.OrderBy(revision => revision, StringComparer.Ordinal).ToArray(),
-                    maxTokens,
-                    previousFailure),
-                cancellationToken).ConfigureAwait(false);
+            Penghou.Baize.LlmRequest llmRequest;
+            try
+            {
+                llmRequest = await promptBuilder.BuildAsync(
+                    new PlanningBootstrapPromptContext(
+                        goal,
+                        PlanningStageCatalogueSummary.Render(catalogue),
+                        catalogue.Version,
+                        known.OrderBy(revision => revision, StringComparer.Ordinal).ToArray(),
+                        maxTokens,
+                        previousFailure),
+                    cancellationToken).ConfigureAwait(false);
+            }
+            catch (PromptTemplateException exception)
+            {
+                attempts.Add(new PlanningStagePlanProposalAttempt(
+                    attempt, string.Empty, false, [exception.Message]));
+                return new PlanningStagePlanProposalResult(false, null, attempts, [exception.Message]);
+            }
             var response = await llmRouter.CompleteStreamingAsync(
                 model, llmRequest, cancellationToken: cancellationToken).ConfigureAwait(false);
             if (response is null)

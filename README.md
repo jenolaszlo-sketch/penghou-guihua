@@ -28,3 +28,14 @@ See `docs/architecture.md` for what Guihua is and is not, and how
 applications (Guyabano, Marang) consume it. See `ROADMAP.md` for delivery
 status and `samples/Penghou.Guihua.Sample` for a runnable walk through the
 kernel (design → patch → catalog).
+
+## Review findings
+
+[Architecture and boundary review (2026-09-28)](docs/architecture-boundary-review-2026-09-28.md).
+
+[Implementation and model handoff plan](docs/implementation-handoff-plan.md).
+
+## Pending Hufu integration
+
+Penghou.Hufu integration is planned and not implemented. Plan with Hufu constraints, request missing authority, and handle decisions without self-authorization.
+See [pending work and ownership boundaries](docs/hufu-integration.md).

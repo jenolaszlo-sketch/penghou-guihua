@@ -30,24 +30,32 @@ public sealed class LlmPlanningDecider(
         var calls = 0;
         for (var attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            var llmRequest = await promptBuilder.BuildAsync(
-                new PlanningDecisionPromptContext(
-                    observation.Goal,
-                    observation.ExecutionPlan,
-                    observation.DesignFingerprint,
-                    observation.WorkflowVersion,
-                    observation.WorkflowComplete,
-                    observation.EvidenceSummary,
-                    observation.FreshArtifactRevisions,
-                    observation.SupersededPins,
-                    observation.Remaining.IterationsRemaining,
-                    observation.Remaining.MutationsRemaining,
-                    observation.Remaining.StructuralIterationsRemaining,
-                    observation.Remaining.ModelCallsRemaining,
-                    observation.Remaining.TokensRemaining,
-                    maxTokens,
-                    previousFailure),
-                cancellationToken).ConfigureAwait(false);
+            Penghou.Baize.LlmRequest llmRequest;
+            try
+            {
+                llmRequest = await promptBuilder.BuildAsync(
+                    new PlanningDecisionPromptContext(
+                        observation.Goal,
+                        observation.ExecutionPlan,
+                        observation.DesignFingerprint,
+                        observation.WorkflowVersion,
+                        observation.WorkflowComplete,
+                        observation.EvidenceSummary,
+                        observation.FreshArtifactRevisions,
+                        observation.SupersededPins,
+                        observation.Remaining.IterationsRemaining,
+                        observation.Remaining.MutationsRemaining,
+                        observation.Remaining.StructuralIterationsRemaining,
+                        observation.Remaining.ModelCallsRemaining,
+                        observation.Remaining.TokensRemaining,
+                        maxTokens,
+                        previousFailure),
+                    cancellationToken).ConfigureAwait(false);
+            }
+            catch (PromptTemplateException exception)
+            {
+                return new PlanningDecisionResult(false, null, calls, [exception.Message]);
+            }
             calls++;
             var response = await llmRouter.CompleteStreamingAsync(
                 model, llmRequest, cancellationToken: cancellationToken)

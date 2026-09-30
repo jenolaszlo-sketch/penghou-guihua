@@ -126,11 +126,45 @@ public sealed class LlmPlanningDeciderTests
         result.ModelCalls.Should().Be(1);
     }
 
+    [Fact]
+    public async Task BrokenPromptReturnsDiagnosticBeforeModelCall()
+    {
+        var ct = TestContext.Current.CancellationToken;
+        var design = Design();
+        var router = new ScriptedRouter(["{}"]);
+        var decider = new LlmPlanningDecider(
+            router,
+            new PlanningDecisionPromptBuilder(
+                new ScribanPromptTemplateEngine(new StaticPromptLoader("{{ 1 + }}"))),
+            "stub-decider");
+        var observation = new PlanningDecisionContext(
+            "Use the v2 generator.",
+            PlanningGraphSummary.Render(design),
+            PlanningDesignIdentity.Compute(design),
+            [], [], "v1", false, "nothing executed yet",
+            new PlanningLoopBudget(9, 5, 8, 29, null),
+            null, null);
+
+        var result = await decider.DecideAsync(observation, ct);
+
+        result.Succeeded.Should().BeFalse();
+        result.ModelCalls.Should().Be(0);
+        result.Diagnostics.Should().ContainSingle().Which.Should().Contain("planning-decision/system.sbn");
+        router.Requests.Should().BeEmpty();
+    }
+
     private static string TextOf(LlmRequest request, string role) => string.Concat(request.Messages
         .Where(m => m.Role == role)
         .SelectMany(m => m.Parts)
         .OfType<LlmTextContent>()
         .Select(p => p.Text));
+
+    private sealed class StaticPromptLoader(string source) : IPromptLoader
+    {
+        public Task<string> LoadAsync(
+            string promptName,
+            CancellationToken cancellationToken = default) => Task.FromResult(source);
+    }
 
     private sealed class ScriptedRouter(IReadOnlyList<string> script) : ILlmRouter
     {

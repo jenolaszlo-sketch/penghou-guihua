@@ -1,8 +1,14 @@
 namespace Penghou.Guihua.Baize;
 
-public sealed class FilePromptLoader(string promptRoot) : IPromptLoader
+public sealed class FilePromptLoader : IPromptLoader
 {
-    private readonly string _promptRoot = promptRoot;
+    private readonly string _promptRoot;
+
+    public FilePromptLoader(string promptRoot)
+    {
+        ArgumentException.ThrowIfNullOrWhiteSpace(promptRoot);
+        _promptRoot = Path.GetFullPath(promptRoot);
+    }
 
     public async Task<string> LoadAsync(
         string promptName,
@@ -14,10 +20,16 @@ public sealed class FilePromptLoader(string promptRoot) : IPromptLoader
         if (Path.IsPathRooted(promptName))
             throw new InvalidOperationException($"Prompt name must be relative: {promptName}");
 
-        var fullRoot = Path.GetFullPath(_promptRoot);
-        var fullPath = Path.GetFullPath(Path.Combine(fullRoot, promptName));
+        var fullPath = Path.GetFullPath(Path.Combine(_promptRoot, promptName));
+        var rootPrefix = Path.EndsInDirectorySeparator(_promptRoot)
+            ? _promptRoot
+            : _promptRoot + Path.DirectorySeparatorChar;
 
-        if (!fullPath.StartsWith(fullRoot, StringComparison.OrdinalIgnoreCase))
+        if (!fullPath.StartsWith(
+                rootPrefix,
+                OperatingSystem.IsWindows()
+                    ? StringComparison.OrdinalIgnoreCase
+                    : StringComparison.Ordinal))
             throw new InvalidOperationException($"Prompt path escapes prompt root: {promptName}");
 
         if (!File.Exists(fullPath))

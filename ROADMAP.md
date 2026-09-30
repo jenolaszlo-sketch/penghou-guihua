@@ -148,3 +148,110 @@ software roles, product artifact schemas — stay in the consumers.
    explanation in Gap A, keeping MCP transport and authorization in Marang.
 4. **Pre-stable** — promote baselines to Shipped when the contract freezes
    (coverage thresholds, sample, and analyzer baselines already landed).
+
+## V2 — Evidence-driven workflow evolution (deferred)
+
+Status: **future work after V1; not a current release gate**. Added 2026-09-26.
+V2.1/V2.2/V2.3 name cross-project delivery stages, not package or IR versions.
+Existing near-term priorities and completed work retain their current status.
+
+Architecture and shared acceptance gates: [reviewed V2 specification](docs/evidence-driven-workflow-evolution-v2.md).
+Cross-repository links assume sibling checkouts.
+
+### V2.1 — Evidence-informed repair proposals
+
+- [ ] Define bounded provider-neutral evidence/decision inputs over current
+  planning artifacts, `IPlanningDecider`, patches and preservation validation;
+  application policy owns evaluator trust, task classification and acceptance.
+- [ ] Distinguish execution failure, rejected output, evaluator failure and
+  plan diagnosis. Propose retry, revalidation, replacement or escalation without
+  rewriting terminal outcomes or weakening required criteria.
+- [ ] Add scoped, versioned avoidance records with equivalent-context rules,
+  evidence references, expiry/revalidation and explicit override. Missing or
+  changed context must not permanently blacklist an approach.
+- [ ] Bind each proposal to exact base revision, evidence snapshot, policy and
+  cumulative replan/work budget. Detect repeated repair oscillation and stop
+  with an explained unresolved result.
+- [ ] Consume Fuwen comparison/admission and Zhinu transition previews/receipts
+  through the existing execution-host seam. The current fork adapter and
+  process-local tracking are not durable generation-cutover authority.
+
+Prerequisites: existing Gap A receipt/preview work and the corresponding Fuwen/
+Zhinu contracts, after current V1 priorities. Gate: a completed-but-rejected
+artifact leads to one admitted replacement, preserving unaffected work and all
+rationale, including recovery from an interrupted transition.
+
+### V2.2 — Bounded comparative proposals
+
+- [ ] Propose explicit candidate differences, shared constraints, fixed rubric,
+  selection/tie/stop policy, isolation requirements and total budget.
+- [ ] Compose existing Fuwen constructs first; accept selected, inconclusive,
+  none-acceptable and partial outcomes. Selection is committed through runtime/
+  host authority, not an unrecorded decider choice.
+- [ ] Keep unexecuted alternatives and before/after repair comparisons distinct
+  from controlled experimental evidence. Preserve losing and corrective work.
+
+Gate: two isolated candidates yield an explained decision or no winner, and
+recovery cannot grant a new budget or silently select again.
+
+### V2.3 — Contextual preference reuse
+
+- [ ] Consume pinned Hongxian recall/aggregate and Cangjie context snapshots
+  through host ports, with independent-case counts, freshness, version/scope
+  compatibility, contrary evidence and explicit fallback.
+- [ ] Skip experiments only under versioned host policy; preserve hard
+  authorization, capability, budget and acceptance gates.
+- [ ] Record why a preferred strategy/provider was proposed. The host supplies
+  the selected provider identity to Qingniao; Baize retains model routing.
+
+Later V2+: topology proposals, attribution, calibration and promotion/demotion
+policies require measured need and representative evidence. Guihua remains a
+planning kernel, not an evidence database or autonomous runtime.
+
+## Review hardening and implementation handoff — 2026-09-28
+
+The [implementation handoff plan](docs/implementation-handoff-plan.md) turns the
+[boundary review](docs/architecture-boundary-review-2026-09-28.md) into bounded
+assignments with dependencies, acceptance tests and model handoff instructions.
+Status: **planned; no implementation is marked complete by adding this plan**.
+
+| Work | Task IDs | Relationship to existing roadmap |
+| --- | --- | --- |
+| Baseline, decision validation and call limits | GH-00–GH-02 | Harden the delivered bounded kernel; retain Gap C gates |
+| Revision admission and reliable planning state | GH-03–GH-05 | Gap A.1/B plus catalog/checkpoint review findings |
+| Typed facts and recoverable activation | GH-07, then GH-06 | Gap A.3/A.4; activation waits for released Fuwen/Zhinu authority |
+| Preview, composition, refactoring and release evidence | GH-08–GH-10 | Gap A.2/A.4, second consumer, Gap B/C |
+
+Start with GH-00, then GH-01; GH-04 can run as an independent storage assignment.
+The plan records exact dependency ordering; task numbering alone is not ordering.
+Keep existing Gap A upstream prerequisites, consumer compatibility and
+Fuwen -> Guihua -> consumer publish order. V2 remains deferred and does not
+become a V1 gate through this hardening work.
+
+## Review follow-ups — 2026-09-30
+
+- [ ] After GH-03 and a verified Fuwen source-edit contract, prototype
+  deterministic syntax-aware patching for supported constructs. Preserve
+  untouched source spans and validate the complete admitted plan; keep the
+  existing author-and-preservation path for unsupported edits.
+- [ ] In GH-03/GH-07, return bounded typed diagnostics with Fuwen rule IDs,
+  source locations and target paths where available. Keep concise text for
+  model repair, but do not make consumers parse it to locate a failure.
+- [ ] In GH-08, offer a bounded Mermaid view of a pinned transition preview
+  for reports and review UIs. Escape labels and mark truncated graphs; graph
+  output has no authority to approve or activate a revision.
+- [ ] Before multiple processes can plan one workflow, add a workflow-scoped
+  lease or compare-and-swap catalog head. The in-process run guard prevents
+  duplicate runs only on one `PlanningLoop` instance.
+
+`FilePromptLoader` and `IPromptLoader` already support local prompt files. GH-04
+retains the broader physical-path and multi-writer storage review; remote
+prompt delivery and new storage providers need separate trust and deployment
+requirements.
+
+## Pending dependency: Penghou.Hufu
+
+Recorded 2026-09-28. Hufu is currently a scaffold; its authority contracts, store,
+and enforcement integration are pending. Plan with Hufu constraints, request missing authority, and handle decisions without self-authorization.
+See [the project-specific integration note](docs/hufu-integration.md) for scope, dependencies,
+and completion evidence. This records future work without changing current release gates.

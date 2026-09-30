@@ -168,6 +168,25 @@ public sealed class FileSystemArtifactRepositoryTests : IDisposable
     }
 
     [Fact]
+    public async Task ReadAsync_RejectsCaseVariantSiblingOnCaseSensitiveSystems()
+    {
+        if (OperatingSystem.IsWindows())
+        {
+            return;
+        }
+
+        var repository = new FileSystemArtifactRepository(Path.Combine(_root, "storage"));
+        var reference = new ArtifactReference(
+            "bad", "decomposition", 1, "../Storage/outside.json", "bad");
+
+        var action = () => repository.ReadAsync<TestPayload>(
+            reference, TestContext.Current.CancellationToken);
+
+        await action.Should().ThrowAsync<ArtifactIntegrityException>()
+            .WithMessage("*escapes*");
+    }
+
+    [Fact]
     public async Task ReadLatestAsync_ReturnsNewestCheckpointForStage()
     {
         var repository = new FileSystemArtifactRepository(_root);

@@ -69,16 +69,25 @@ public sealed class WorkflowPatchProposer(
         string? previousFailure = null;
         for (var attempt = 1; attempt <= maxAttempts; attempt++)
         {
-            var llmRequest = await promptBuilder.BuildAsync(
-                new WorkflowPatchPromptContext(
-                    goal,
-                    executionPlan,
-                    baseFingerprint,
-                    allowed,
-                    catalogueSummary,
-                    maxTokens,
-                    previousFailure),
-                cancellationToken).ConfigureAwait(false);
+            Penghou.Baize.LlmRequest llmRequest;
+            try
+            {
+                llmRequest = await promptBuilder.BuildAsync(
+                    new WorkflowPatchPromptContext(
+                        goal,
+                        executionPlan,
+                        baseFingerprint,
+                        allowed,
+                        catalogueSummary,
+                        maxTokens,
+                        previousFailure),
+                    cancellationToken).ConfigureAwait(false);
+            }
+            catch (PromptTemplateException exception)
+            {
+                attempts.Add(new WorkflowPatchProposalAttempt(attempt, string.Empty, false, [exception.Message]));
+                return new WorkflowPatchProposalResult(false, null, null, attempts, [exception.Message]);
+            }
             var response = await llmRouter.CompleteStreamingAsync(
                 model, llmRequest, cancellationToken: cancellationToken).ConfigureAwait(false);
             if (response is null)

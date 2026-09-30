@@ -23,6 +23,8 @@ public sealed class PlanningLoop(
     private const int CheckpointSchemaVersion = 1;
     private const string CheckpointKind = "planning-checkpoint";
     private const string ProducedBy = "planning-loop";
+    private readonly object activeRunGate = new();
+    private readonly HashSet<string> activeWorkflowIds = new(StringComparer.Ordinal);
 
     /// <summary>
     /// Runs the loop from an initial admitted design and DSL until a finish
@@ -60,6 +62,41 @@ public sealed class PlanningLoop(
                 nameof(initial));
         }
 
+        cancellationToken.ThrowIfCancellationRequested();
+        lock (activeRunGate)
+        {
+            if (!activeWorkflowIds.Add(workflowId))
+            {
+                throw new InvalidOperationException(
+                    $"Planning workflow '{workflowId}' is already running on this loop instance.");
+            }
+        }
+
+        try
+        {
+            return await RunSingleAsync(
+                workflowId, goal, initial, initialDsl, catalogueSummary,
+                model, maxTokens, cancellationToken).ConfigureAwait(false);
+        }
+        finally
+        {
+            lock (activeRunGate)
+            {
+                activeWorkflowIds.Remove(workflowId);
+            }
+        }
+    }
+
+    private async Task<PlanningLoopOutcome> RunSingleAsync(
+        string workflowId,
+        string goal,
+        PlanningDesign initial,
+        string initialDsl,
+        string catalogueSummary,
+        string model,
+        int maxTokens,
+        CancellationToken cancellationToken)
+    {
         var restored = await RestoreAsync(
             workflowId, goal, initial, initialDsl, cancellationToken).ConfigureAwait(false);
         if (restored.Terminal is not null)
